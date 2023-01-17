@@ -1,0 +1,26 @@
+$mapHeight: calc(100vh - 110px);
+
+.map {
+    width: calc($mapHeight * 1.33244343);
+    height: $mapHeight;
+    position: relative;
+    box-shadow: 12px 0 15px -5px rgba(0, 0, 0, 0.5), -12px 0 8px -5px rgba(0, 0, 0, 0.5);
+}
+
+.mapSVG_container {
+    height: 100%;
+    position: absolute;
+}
+
+.map>img {
+    height: 100%;
+}
+
+.mapSVG {
+  width: 100%;
+  height: 100%;
+
+}
+
+
+
