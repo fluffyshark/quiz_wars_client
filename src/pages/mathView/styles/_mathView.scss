@@ -1,0 +1,67 @@
+$boxHeight: calc((100% / 10));
+
+.mathView {
+    width: 100%;
+    height: 100vh;
+    background: rgb(41,149,238);
+    background: linear-gradient(0deg, rgba(41,149,238,1) 0%, rgba(17,112,236,1) 100%);
+
+    &_question {
+        width: 100%;
+        height: 300px;
+        display: flex; justify-content: center; align-items: center;
+
+        &_box {
+            width: 650px;
+            height: 60%;
+            background-color: #2ea0fa;
+            display: flex; justify-content: center; align-items: center;
+
+            @media screen and (orientation: portrait) and (max-width: 800px) {width: 730px;}
+            
+            p{color: white; font-size: 100px; font-weight: bold; margin: 0;}
+
+            
+        }
+    }
+
+
+    &_answer {
+        width: 100%;
+        height: calc(100% - 300px);
+        display: flex; justify-content: center; align-items: center;
+
+        /*
+        @media screen and (orientation: landscape) and (max-height: 1000px) {height: calc(100vh - 285px);}
+        @media screen and (orientation: landscape) and (max-height: 1100px) {height: calc(100vh - 285px);}
+        */
+        &_box {
+            width: 650px;
+            height: 650px;
+            margin-bottom: 30px;
+            display: block;
+            float: left;
+            background: repeating-conic-gradient(#4ab8fc 0% 25%, #2ea0fa 0% 50%) 50% / 20% 20%;
+
+            
+            @media screen and (orientation: portrait) and (max-width: 800px) {
+                width: 730px;
+                height: 730px;
+            }
+            
+
+            &_number {
+                width: $boxHeight;
+                height: $boxHeight;
+               
+                float: left;
+                
+                
+                display: flex; justify-content: center; align-items: center;
+                cursor: pointer;
+
+                p{color: white; font-size: 20px; font-weight: bold; margin: 0;}
+            }
+        }
+    }
+}
