@@ -6,12 +6,14 @@ import RegionSelectView from './pages/regionSelectView/RegionSelectView';
 import QuizView from './pages/quizView/QuizView';
 import MathView from './pages/mathView/MathView';
 import StartView from './pages/startView/StartView';
+import GameSelect from './pages/gameSelect/GameSelect';
 
 function App() {
   return (
     <BrowserRouter>
       <Routes>
         <Route path="/" element={<StartView />}></Route> 
+        <Route path="/gameselect" element={<GameSelect />}></Route> 
         <Route path="/overview" element={<Overview />}></Route>  
         <Route path="/regionselect" element={<RegionSelectView />}></Route> 
         <Route path="/quizview" element={<QuizView />}></Route>  
