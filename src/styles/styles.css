@@ -431,4 +431,52 @@
   font-size: 20px;
   font-weight: bold;
   margin: 0;
+}
+
+.startView {
+  width: 100%;
+  height: 100vh;
+  background: rgb(41, 149, 238);
+  background: linear-gradient(0deg, rgb(41, 149, 238) 0%, rgb(17, 112, 236) 100%);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+}
+.startView_title {
+  width: 100%;
+  height: 15%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin-bottom: 50px;
+}
+.startView_title p {
+  color: white;
+  font-size: 100px;
+  font-weight: bold;
+  margin: 0;
+}
+.startView_button {
+  width: 600px;
+  max-width: 1000px;
+  height: 100px;
+  background-color: #3cb8fc;
+  cursor: pointer;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  border-left: 8px solid #106fec;
+  border-right: 8px solid #106fec;
+  border-top: 8px solid #106fec;
+}
+.startView_button p {
+  color: white;
+  font-size: 50px;
+  font-weight: bold;
+  margin: 0;
+}
+
+#hostButton {
+  border-bottom: 8px solid #106fec;
 }/*# sourceMappingURL=styles.css.map */
