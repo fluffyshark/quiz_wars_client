@@ -768,4 +768,86 @@
   font-size: 20px;
   font-weight: bold;
   color: white;
+}
+
+.playerLobbyView {
+  width: 100%;
+  height: 100vh;
+  background: rgb(41, 149, 238);
+  background: linear-gradient(0deg, rgb(41, 149, 238) 0%, rgb(17, 112, 236) 100%);
+}
+.playerLobbyView_title {
+  width: 100%;
+  height: 20%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.playerLobbyView_title p {
+  color: white;
+  font-size: 70px;
+  font-weight: bold;
+  margin: 0;
+}
+.playerLobbyView_container {
+  width: 100%;
+  height: calc(100vh - 20%);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+}
+.playerLobbyView_container p {
+  color: white;
+  font-weight: bold;
+  margin: 0;
+}
+.playerLobbyView_container p:nth-child(1) {
+  font-size: 25px;
+  margin-bottom: -10px;
+  margin-top: -100px;
+}
+.playerLobbyView_container p:nth-child(2) {
+  font-size: 25px;
+}
+.playerLobbyView_container p:nth-child(3) {
+  font-size: 25px;
+  margin-bottom: 10px;
+  margin-top: 100px;
+}
+.playerLobbyView_container_box {
+  width: 300px;
+  height: 45px;
+  background-color: #3cb8fc;
+  border: 5px solid #106fec;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  position: relative;
+  cursor: pointer;
+}
+.playerLobbyView_container_box p {
+  margin: 0;
+  font-weight: bold;
+  color: white;
+  font-size: 22px;
+}
+.playerLobbyView_container_box img {
+  height: 100%;
+  position: absolute;
+  top: 0;
+  left: 0;
+}
+.playerLobbyView_container_box:nth-child(4) {
+  border-bottom: 0px;
+}
+.playerLobbyView_container_box:nth-child(5) {
+  border-bottom: 0px;
+}
+.playerLobbyView_container_box:nth-child(6) {
+  border-bottom: 0px;
+}
+.playerLobbyView_container #playerLobbyView_selectedTeam {
+  font-size: 70px;
 }/*# sourceMappingURL=styles.css.map */
