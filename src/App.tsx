@@ -8,6 +8,7 @@ import MathView from './pages/mathView/MathView';
 import StartView from './pages/startView/StartView';
 import GameSelect from './pages/gameSelect/GameSelect';
 import LobbyView from './pages/lobbyView/LobbyView';
+import JoinView from './pages/joinView/JoinView';
 
 function App() {
   return (
@@ -20,6 +21,7 @@ function App() {
         <Route path="/quizview" element={<QuizView />}></Route>  
         <Route path="/mathview" element={<MathView />}></Route>  
         <Route path="/lobby" element={<LobbyView />}></Route>  
+        <Route path="/join" element={<JoinView />}></Route> 
       </Routes>
     </BrowserRouter>
     
