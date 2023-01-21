@@ -7,8 +7,8 @@ import QuizView from './pages/quizView/QuizView';
 import MathView from './pages/mathView/MathView';
 import StartView from './pages/startView/StartView';
 import GameSelect from './pages/gameSelect/GameSelect';
-import LobbyView from './pages/lobbyView/LobbyView';
 import JoinView from './pages/joinView/JoinView';
+import HosthostLobbyView from './pages/hostLobbyView/HostLobbyView';
 
 function App() {
   return (
@@ -20,7 +20,7 @@ function App() {
         <Route path="/regionselect" element={<RegionSelectView />}></Route> 
         <Route path="/quizview" element={<QuizView />}></Route>  
         <Route path="/mathview" element={<MathView />}></Route>  
-        <Route path="/lobby" element={<LobbyView />}></Route>  
+        <Route path="/hostlobby" element={<HosthostLobbyView />}></Route>  
         <Route path="/join" element={<JoinView />}></Route> 
       </Routes>
     </BrowserRouter>

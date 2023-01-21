@@ -578,103 +578,6 @@
   color: white;
 }
 
-.lobbyView {
-  width: 100%;
-  height: 100vh;
-  background: rgb(41, 149, 238);
-  background: linear-gradient(0deg, rgb(41, 149, 238) 0%, rgb(17, 112, 236) 100%);
-}
-.lobbyView_title {
-  width: 100%;
-  height: 20%;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-}
-.lobbyView_title p {
-  color: white;
-  font-size: 70px;
-  font-weight: bold;
-  margin: 0;
-}
-.lobbyView_gameCode {
-  width: 100%;
-  height: 20%;
-  display: flex;
-  justify-content: center;
-}
-.lobbyView_gameCode_box {
-  width: 80%;
-  height: calc(100% - 8px - 8px);
-  background-color: #3cb8fc;
-  border: 8px solid #106fec;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  flex-direction: column;
-}
-.lobbyView_gameCode_box p {
-  margin: 0;
-  font-weight: bold;
-  color: white;
-}
-.lobbyView_gameCode_box p:nth-child(1) {
-  font-size: 25px;
-  margin-bottom: -20px;
-}
-.lobbyView_gameCode_box p:nth-child(2) {
-  font-size: 100px;
-}
-.lobbyView_teams {
-  width: 100%;
-  height: 45%;
-  display: flex;
-  justify-content: space-evenly;
-  align-items: center;
-}
-.lobbyView_teams_box {
-  width: 160px;
-  height: 120px;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  flex-direction: column;
-}
-.lobbyView_teams_box p {
-  color: white;
-  font-weight: bold;
-  margin: 0;
-}
-.lobbyView_teams_box p:nth-child(1) {
-  font-size: 20px;
-  margin-bottom: -10px;
-}
-.lobbyView_teams_box p:nth-child(2) {
-  font-size: 70px;
-}
-.lobbyView_start {
-  width: 100%;
-  height: 15%;
-  display: flex;
-  justify-content: center;
-  align-items: flex-start;
-}
-.lobbyView_start_button {
-  width: 300px;
-  height: 60px;
-  background-color: #3cb8fc;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  border: 8px solid #106fec;
-  cursor: pointer;
-}
-.lobbyView_start_button p {
-  font-size: 20px;
-  font-weight: bold;
-  color: white;
-}
-
 .joinView {
   width: 100%;
   height: 100vh;
@@ -768,4 +671,101 @@
 }
 .joinView_container_box:nth-child(10) p {
   font-size: 20px;
+}
+
+.hostLobbyView {
+  width: 100%;
+  height: 100vh;
+  background: rgb(41, 149, 238);
+  background: linear-gradient(0deg, rgb(41, 149, 238) 0%, rgb(17, 112, 236) 100%);
+}
+.hostLobbyView_title {
+  width: 100%;
+  height: 20%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.hostLobbyView_title p {
+  color: white;
+  font-size: 70px;
+  font-weight: bold;
+  margin: 0;
+}
+.hostLobbyView_gameCode {
+  width: 100%;
+  height: 20%;
+  display: flex;
+  justify-content: center;
+}
+.hostLobbyView_gameCode_box {
+  width: 80%;
+  height: calc(100% - 8px - 8px);
+  background-color: #3cb8fc;
+  border: 8px solid #106fec;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+}
+.hostLobbyView_gameCode_box p {
+  margin: 0;
+  font-weight: bold;
+  color: white;
+}
+.hostLobbyView_gameCode_box p:nth-child(1) {
+  font-size: 25px;
+  margin-bottom: -20px;
+}
+.hostLobbyView_gameCode_box p:nth-child(2) {
+  font-size: 100px;
+}
+.hostLobbyView_teams {
+  width: 100%;
+  height: 45%;
+  display: flex;
+  justify-content: space-evenly;
+  align-items: center;
+}
+.hostLobbyView_teams_box {
+  width: 160px;
+  height: 120px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+}
+.hostLobbyView_teams_box p {
+  color: white;
+  font-weight: bold;
+  margin: 0;
+}
+.hostLobbyView_teams_box p:nth-child(1) {
+  font-size: 20px;
+  margin-bottom: -10px;
+}
+.hostLobbyView_teams_box p:nth-child(2) {
+  font-size: 70px;
+}
+.hostLobbyView_start {
+  width: 100%;
+  height: 15%;
+  display: flex;
+  justify-content: center;
+  align-items: flex-start;
+}
+.hostLobbyView_start_button {
+  width: 300px;
+  height: 60px;
+  background-color: #3cb8fc;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  border: 8px solid #106fec;
+  cursor: pointer;
+}
+.hostLobbyView_start_button p {
+  font-size: 20px;
+  font-weight: bold;
+  color: white;
 }/*# sourceMappingURL=styles.css.map */
