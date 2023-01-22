@@ -40,6 +40,12 @@
         &_box:nth-child(4) {border-bottom: 0px;}
         &_box:nth-child(5) {border-bottom: 0px;}
         &_box:nth-child(6) {border-bottom: 0px;}
+
+        &_box:nth-child(4):hover {background-color: #106fec;}
+        &_box:nth-child(5):hover {background-color: #106fec;}
+        &_box:nth-child(6):hover {background-color: #106fec;}
+        &_box:nth-child(7):hover {background-color: #106fec;}
+        
         
 
         #playerLobbyView_selectedTeam {font-size: 70px;}

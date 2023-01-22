@@ -359,6 +359,18 @@
   border-bottom: 8px solid #106fec;
   margin-bottom: 20px;
 }
+.quizView_answers_box:nth-child(1):hover {
+  background-color: #106fec;
+}
+.quizView_answers_box:nth-child(2):hover {
+  background-color: #106fec;
+}
+.quizView_answers_box:nth-child(3):hover {
+  background-color: #106fec;
+}
+.quizView_answers_box:nth-child(4):hover {
+  background-color: #106fec;
+}
 
 .mathView {
   width: 100%;
@@ -432,6 +444,9 @@
   font-weight: bold;
   margin: 0;
 }
+.mathView_answer_box_number:hover {
+  background-color: #106fec;
+}
 
 .startView {
   width: 100%;
@@ -475,6 +490,9 @@
   font-size: 50px;
   font-weight: bold;
   margin: 0;
+}
+.startView_button:hover {
+  background-color: #106fec;
 }
 
 #hostButton {
@@ -555,6 +573,9 @@
 .gameSelect_select_buttonSection_button p:nth-child(3) {
   font-size: 22px;
 }
+.gameSelect_select_buttonSection_button:hover {
+  background-color: #106fec;
+}
 .gameSelect_start {
   width: 100%;
   height: 15%;
@@ -576,6 +597,9 @@
   font-size: 20px;
   font-weight: bold;
   color: white;
+}
+.gameSelect_start_button:hover {
+  background-color: #106fec;
 }
 
 .joinView {
@@ -664,6 +688,18 @@
 .joinView_container_box:nth-child(8) {
   border-bottom: 0px;
 }
+.joinView_container_box:nth-child(6):hover {
+  background-color: #106fec;
+}
+.joinView_container_box:nth-child(7):hover {
+  background-color: #106fec;
+}
+.joinView_container_box:nth-child(8):hover {
+  background-color: #106fec;
+}
+.joinView_container_box:nth-child(9):hover {
+  background-color: #106fec;
+}
 .joinView_container_box:nth-child(10) {
   width: 250px;
   height: 35px;
@@ -671,6 +707,9 @@
 }
 .joinView_container_box:nth-child(10) p {
   font-size: 20px;
+}
+.joinView_container_box:nth-child(10):hover {
+  background-color: #106fec;
 }
 
 .hostLobbyView {
@@ -769,6 +808,9 @@
   font-weight: bold;
   color: white;
 }
+.hostLobbyView_start_button:hover {
+  background-color: #106fec;
+}
 
 .playerLobbyView {
   width: 100%;
@@ -847,6 +889,18 @@
 }
 .playerLobbyView_container_box:nth-child(6) {
   border-bottom: 0px;
+}
+.playerLobbyView_container_box:nth-child(4):hover {
+  background-color: #106fec;
+}
+.playerLobbyView_container_box:nth-child(5):hover {
+  background-color: #106fec;
+}
+.playerLobbyView_container_box:nth-child(6):hover {
+  background-color: #106fec;
+}
+.playerLobbyView_container_box:nth-child(7):hover {
+  background-color: #106fec;
 }
 .playerLobbyView_container #playerLobbyView_selectedTeam {
   font-size: 70px;

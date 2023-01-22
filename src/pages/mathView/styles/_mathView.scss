@@ -62,6 +62,8 @@ $boxHeight: calc((100% / 10));
 
                 p{color: white; font-size: 20px; font-weight: bold; margin: 0;}
             }
+
+            &_number:hover {background-color: #106fec;}
         }
     }
 }

@@ -51,7 +51,8 @@
                 p:nth-child(3) {font-size: 22px;}
             }
 
-         
+            &_button:hover {background-color: #106fec;}
+
         }
     }
    
@@ -62,7 +63,7 @@
         width: 100%;
         height: 15%;
         display: flex; justify-content: center; align-items: flex-start;
-    
+
         &_button {
             width: 300px;
             height: 60px;
@@ -73,6 +74,9 @@
 
             p {font-size: 20px; font-weight: bold; color: white;}
         }
+
+        &_button:hover {background-color: #106fec;}
     }
+
 
 }
