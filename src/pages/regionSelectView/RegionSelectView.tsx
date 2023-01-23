@@ -1,11 +1,14 @@
-import * as React from 'react';
+import {useEffect, useState} from 'react';
 import Map from "../../components/map/Map"
-import region01 from "../../images/regions/region01.png"
+import regions from "../../images/RegionImageExport"
 
 export interface IAppProps {
 }
 
 export default function RegionSelectView (props: IAppProps) {
+
+  const [regionId, setRegionId] = useState<string>("")
+  const [selectedRegion, setSelectedRegion] = useState({})
 
 
   const innerHeight = window.innerHeight - 1; 
@@ -13,8 +16,22 @@ export default function RegionSelectView (props: IAppProps) {
   const mapWidth = innerHeight * 1.33244343;
   const statsWidth = innerWidth - mapWidth;
 
+  useEffect(() => {
+    addRegionData()
+  }, [regionId])
 
-  React.useEffect(() => {
+ 
+  function addRegionData() {
+    // Remove the first four letters, turning the last two digits of the string into number
+    const regionNr = parseInt(regionId.substring(5)) 
+
+    console.log(regionNr)
+
+    
+  }
+  
+
+  useEffect(() => {
     (document.getElementById("mapComponent") as HTMLFormElement).style.height = "100vh";
     (document.getElementById("statsSection") as HTMLFormElement).style.width = `${statsWidth}px`;
   }, [])
@@ -22,7 +39,7 @@ export default function RegionSelectView (props: IAppProps) {
 
   return (
     <div className='regionSelectView'>
-      <Map height={innerHeight} width={mapWidth}/>
+      <Map height={innerHeight} width={mapWidth} setRegionId={setRegionId}/>
       <div id="statsSection" className="regionSelectView_stats">
         <div className="regionSelectView_stats_titleSection"><p>Quiz Wars</p></div>
         
@@ -41,7 +58,7 @@ export default function RegionSelectView (props: IAppProps) {
             <p>Your points enters region</p>
             <p>Argonien</p>
           </div>
-          <div className="regionSelectView_stats_regionInfo_regionImage"><img src={region01} alt="" /></div>
+          <div className="regionSelectView_stats_regionInfo_regionImage"><img src={regions[0]} alt="" /></div>
           <div className="regionSelectView_stats_regionInfo_regionPoints">
             <p>CONTROLLED BY</p>
             <p>Red Team</p>

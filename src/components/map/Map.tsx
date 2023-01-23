@@ -4,14 +4,14 @@ import MapSVG from './MapSVG';
 type WidthHeightProps = {
   height: number
   width?: number
+  setRegionId: (regionId: string) => void;
 }
 
 
-export default function Map ({height, width}: WidthHeightProps ) {
+export default function Map ({height, width, setRegionId}: WidthHeightProps ) {
 
 
   React.useEffect(() => {
-    
     setTimeout(() => {
       (document.getElementById("mapComponent") as HTMLFormElement).style.width = `${width}px`;
       (document.getElementById("mapComponent") as HTMLFormElement).style.height = `${height}px`;
@@ -22,8 +22,7 @@ export default function Map ({height, width}: WidthHeightProps ) {
   
   return (
     <div id="mapComponent" className='map' >
-      <div id="mapSVG_containerId"  className='mapSVG_container'><MapSVG /></div>
-    {/* <img id="mapImage" src={MapImage} alt="" />  */}  
+      <div id="mapSVG_containerId"  className='mapSVG_container'><MapSVG setRegionId={setRegionId}/></div> 
     </div>
   );
 }
