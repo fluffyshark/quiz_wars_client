@@ -26,7 +26,6 @@ function App() {
         <Route path="/join" element={<JoinView />}></Route> 
       </Routes>
     </BrowserRouter>
-    
   );
 }
 

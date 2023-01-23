@@ -1,4 +1,5 @@
 import {useEffect, useState} from 'react';
+import { useSelector } from 'react-redux/es/exports';
 import Map from "../../components/map/Map"
 import regions from "../../images/RegionImageExport"
 
@@ -10,6 +11,8 @@ export default function RegionSelectView (props: IAppProps) {
   const [regionId, setRegionId] = useState<string>("")
   const [selectedRegion, setSelectedRegion] = useState({})
 
+  // TESTING REDUX
+  const regionsList = useSelector((state:any) => state.regions.value)
 
   const innerHeight = window.innerHeight - 1; 
   const innerWidth = window.innerWidth;
@@ -18,6 +21,7 @@ export default function RegionSelectView (props: IAppProps) {
 
   useEffect(() => {
     addRegionData()
+    console.log(regionsList)
   }, [regionId])
 
  
@@ -58,7 +62,8 @@ export default function RegionSelectView (props: IAppProps) {
             <p>Your points enters region</p>
             <p>Argonien</p>
           </div>
-          <div className="regionSelectView_stats_regionInfo_regionImage"><img src={regions[0]} alt="" /></div>
+
+          <div className="regionSelectView_stats_regionInfo_regionImage"><img src={regionsList[0].img} alt="" /></div>
           <div className="regionSelectView_stats_regionInfo_regionPoints">
             <p>CONTROLLED BY</p>
             <p>Red Team</p>
