@@ -10,7 +10,7 @@ export interface IAppProps {
 export default function RegionSelectView (props: IAppProps) {
 
   const [regionId, setRegionId] = useState<string>("mapID00")
-  const [selectedRegion, setSelectedRegion] = useState({id: 0, name:"Forest's Edge", img: region01, points_red: 0, points_blue: 0, points_yellow: 0, points_green: 0, controlledBy: "none"})
+  const [selectedRegion, setSelectedRegion] = useState({id: 0, name:"Forest's Edge", img: region01, points_red: 0, points_blue: 0, points_yellow: 0, points_green: 0, your_points: 0, controlledBy: "none"})
 
   // Accessing RegionData from redux
   const regionsList = useSelector((state:any) => state.regions.value)
@@ -73,6 +73,8 @@ export default function RegionSelectView (props: IAppProps) {
             
             <p>POINTS IN REGION</p>
             <p>23</p>
+            <p>YOUR POINTS IN REGION</p>
+            <p>0</p>
             <div className='regionPoints_line'></div>
           </div>
         </div>

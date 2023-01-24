@@ -254,6 +254,13 @@
 .regionSelectView_stats_regionInfo_regionPoints p:nth-child(4) {
   font-size: 30px;
 }
+.regionSelectView_stats_regionInfo_regionPoints p:nth-child(5) {
+  font-size: 15px;
+  margin-top: 10px;
+}
+.regionSelectView_stats_regionInfo_regionPoints p:nth-child(6) {
+  font-size: 30px;
+}
 
 #regionSelectView_redTeam {
   background: rgb(224, 51, 116);
@@ -392,6 +399,7 @@
   display: flex;
   justify-content: center;
   align-items: center;
+  position: relative;
 }
 @media screen and (orientation: portrait) and (max-width: 800px) {
   .mathView_question_box {
@@ -400,9 +408,17 @@
 }
 .mathView_question_box p {
   color: white;
-  font-size: 100px;
   font-weight: bold;
   margin: 0;
+}
+.mathView_question_box p:nth-child(1) {
+  font-size: 100px;
+}
+.mathView_question_box p:nth-child(2) {
+  font-size: 20px;
+  position: absolute;
+  top: 5%;
+  left: 85%;
 }
 .mathView_answer {
   width: 100%;

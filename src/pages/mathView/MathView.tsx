@@ -8,12 +8,13 @@ export interface IAppProps {
 export default function MathView (props: IAppProps) {
 
     const [mathProblem, setMathProblem] = React.useState<{answer: number; question: string}>({answer: 0, question: "0 x 0"})
+    const [userPoints, setUserPoints] = React.useState<number>(0)
 
 
     // User clicking number buttons to answer math question, a new problem are generated regardless of correct or wrong. 
     function handleClick(index:number) {
       if (index === mathProblem.answer) {
-        console.log("correct")
+        setUserPoints(userPoints + 1)
       } else {
         console.log("wrong")
       }
@@ -43,7 +44,7 @@ export default function MathView (props: IAppProps) {
   return (
     <div className='mathView'>
       <div className="mathView_question">
-        <div className="mathView_question_box"><p>{mathProblem.question}</p></div>
+        <div className="mathView_question_box"><p>{mathProblem.question}</p><p>{`${userPoints} points`}</p></div>
       </div>
       <div className="mathView_answer">
         <div className="mathView_answer_box">

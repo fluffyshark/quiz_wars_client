@@ -16,11 +16,13 @@ $boxHeight: calc((100% / 10));
             height: 60%;
             background-color: #2ea0fa;
             display: flex; justify-content: center; align-items: center;
+            position: relative;
 
             @media screen and (orientation: portrait) and (max-width: 800px) {width: 730px;}
             
-            p{color: white; font-size: 100px; font-weight: bold; margin: 0;}
-
+            p{color: white; font-weight: bold; margin: 0;}
+            p:nth-child(1) {font-size: 100px;}
+            p:nth-child(2) {font-size: 20px; position: absolute; top: 5%; left: 85%;}
             
         }
     }
