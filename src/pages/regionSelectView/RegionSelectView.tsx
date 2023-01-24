@@ -15,14 +15,18 @@ export default function RegionSelectView (props: IAppProps) {
   // Accessing RegionData from redux
   const regionsList = useSelector((state:any) => state.regions.value)
 
+  // Valiables used to adjust map to viewport
   const innerHeight = window.innerHeight - 1; 
   const innerWidth = window.innerWidth;
   const mapWidth = innerHeight * 1.33244343;
   const statsWidth = innerWidth - mapWidth;
 
+
+
   useEffect(() => { addRegionData() }, [regionId])
 
  
+
   function addRegionData() {
     // Remove the first four letters, turning the last two digits of the string into number
     let regionNr = parseInt(regionId.substring(5)) 
@@ -31,14 +35,13 @@ export default function RegionSelectView (props: IAppProps) {
     
   } // End of addRegionData()
 
-
-  console.log("selectedRegion", selectedRegion)
-
   
+
   useEffect(() => {
     (document.getElementById("mapComponent") as HTMLFormElement).style.height = "100vh";
     (document.getElementById("statsSection") as HTMLFormElement).style.width = `${statsWidth}px`;
   }, [])
+
 
 
   return (
