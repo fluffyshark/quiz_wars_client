@@ -2,16 +2,17 @@ import {useEffect, useState} from 'react';
 import { useSelector } from 'react-redux/es/exports';
 import Map from "../../components/map/Map"
 import regions from "../../images/RegionImageExport"
+import region01 from "../../images/regions/region01.webp"
 
 export interface IAppProps {
 }
 
 export default function RegionSelectView (props: IAppProps) {
 
-  const [regionId, setRegionId] = useState<string>("")
-  const [selectedRegion, setSelectedRegion] = useState({})
+  const [regionId, setRegionId] = useState<string>("mapID00")
+  const [selectedRegion, setSelectedRegion] = useState({id: 0, name:"Forest's Edge", img: region01, points_red: 0, points_blue: 0, points_yellow: 0, points_green: 0, controlledBy: "none"})
 
-  // TESTING REDUX
+  // Accessing RegionData from redux
   const regionsList = useSelector((state:any) => state.regions.value)
 
   const innerHeight = window.innerHeight - 1; 
@@ -19,22 +20,21 @@ export default function RegionSelectView (props: IAppProps) {
   const mapWidth = innerHeight * 1.33244343;
   const statsWidth = innerWidth - mapWidth;
 
-  useEffect(() => {
-    addRegionData()
-    console.log(regionsList)
-  }, [regionId])
+  useEffect(() => { addRegionData() }, [regionId])
 
  
   function addRegionData() {
     // Remove the first four letters, turning the last two digits of the string into number
-    const regionNr = parseInt(regionId.substring(5)) 
+    let regionNr = parseInt(regionId.substring(5)) 
 
-    console.log(regionNr)
-
+    setSelectedRegion(regionsList[regionNr])
     
-  }
-  
+  } // End of addRegionData()
 
+
+  console.log("selectedRegion", selectedRegion)
+
+  
   useEffect(() => {
     (document.getElementById("mapComponent") as HTMLFormElement).style.height = "100vh";
     (document.getElementById("statsSection") as HTMLFormElement).style.width = `${statsWidth}px`;
@@ -60,13 +60,13 @@ export default function RegionSelectView (props: IAppProps) {
         <div className="regionSelectView_stats_regionInfo">
           <div className="regionSelectView_stats_regionInfo_title">
             <p>Your points enters region</p>
-            <p>Argonien</p>
+            <p>{selectedRegion.name}</p>
           </div>
-
-          <div className="regionSelectView_stats_regionInfo_regionImage"><img src={regionsList[0].img} alt="" /></div>
+          
+          <div className="regionSelectView_stats_regionInfo_regionImage"><img src={selectedRegion.img} alt="" /></div>
           <div className="regionSelectView_stats_regionInfo_regionPoints">
             <p>CONTROLLED BY</p>
-            <p>Red Team</p>
+            <p>{selectedRegion.controlledBy}</p>
             
             <p>POINTS IN REGION</p>
             <p>23</p>

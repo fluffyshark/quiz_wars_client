@@ -1,4 +1,4 @@
-import region01 from "./regions/region01.webp"; import region02 from "./regions/region02.webp"
+import region00 from "./regions/region01.webp"; import region02 from "./regions/region02.webp"
 import region03 from "./regions/region03.webp"; import region04 from "./regions/region04.webp"
 import region05 from "./regions/region05.webp"; import region06 from "./regions/region06.webp"
 import region07 from "./regions/region07.webp"; import region08 from "./regions/region08.webp"
@@ -38,10 +38,10 @@ import region61 from "./regions/region61.webp"; import region62 from "./regions/
 import region63 from "./regions/region63.webp"; import region64 from "./regions/region64.webp"
 import region65 from "./regions/region65.webp"; import region66 from "./regions/region66.webp"
 import region67 from "./regions/region67.webp"; import region68 from "./regions/region68.webp"
-import region69 from "./regions/region69.webp"; import region70 from "./regions/region70.webp"
+import region69 from "./regions/region69.webp"
 
 const regions = [
-    region01,region02,region03,region04,region05,
+    region00,region02,region03,region04,region05,
     region06,region07,region08,region09,region10,
     region11,region12,region13,region14,region15,
     region16,region17,region18,region19,region20,
@@ -54,7 +54,7 @@ const regions = [
     region51,region52,region53,region54,region55,
     region56,region57,region58,region59,region60,
     region61,region62,region63,region64,region65,
-    region66,region67,region68,region69,region70,
+    region66,region67,region68,region69,
 ]
 
 
