@@ -28,10 +28,12 @@ export default function MathView (props: IAppProps) {
     }
 
    
-    
+    // CHECKING USERDATA / REMOVE LATER
     React.useEffect(() => {
       console.log("userData", userData)
     }, [userData])
+
+
 
     // Generating answer boxes
     const numberboxes = () => {

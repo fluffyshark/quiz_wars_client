@@ -1,5 +1,6 @@
 import {useEffect, useState} from 'react';
-import { useSelector } from 'react-redux/es/exports';
+import { useSelector, useDispatch } from 'react-redux/es/exports';
+import { select_region } from "../../redux/UserReducer"
 import Map from "../../components/map/Map"
 import regions from "../../images/RegionImageExport"
 import region01 from "../../images/regions/region01.webp"
@@ -14,6 +15,8 @@ export default function RegionSelectView (props: IAppProps) {
 
   // Accessing RegionData from redux
   const regionsList = useSelector((state:any) => state.regions.value)
+  const userData = useSelector((state:any) => state.user.value)
+  const dispatch = useDispatch()
 
   // Valiables used to adjust map to viewport
   const innerHeight = window.innerHeight - 1; 
@@ -28,14 +31,21 @@ export default function RegionSelectView (props: IAppProps) {
  
 
   function addRegionData() {
+    
     // Remove the first four letters, turning the last two digits of the string into number
     let regionNr = parseInt(regionId.substring(5)) 
-
+    
+    // Set selected region object as local state  
     setSelectedRegion(regionsList[regionNr])
+    
+    // Set selected region id in global user state
+    dispatch(select_region({selectedRegionId: regionsList[regionNr].id}))
     
   } // End of addRegionData()
 
-  
+
+
+
 
   useEffect(() => {
     (document.getElementById("mapComponent") as HTMLFormElement).style.height = "100vh";
