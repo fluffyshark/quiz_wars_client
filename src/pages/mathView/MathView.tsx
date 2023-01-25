@@ -1,5 +1,7 @@
 import * as React from 'react';
+import { useSelector, useDispatch } from "react-redux"
 import { generateMathProblem } from './components/GenerateMathProblem';
+import { add_points } from "../../redux/UserReducer"
 
 
 export interface IAppProps {
@@ -10,18 +12,26 @@ export default function MathView (props: IAppProps) {
     const [mathProblem, setMathProblem] = React.useState<{answer: number; question: string}>({answer: 0, question: "0 x 0"})
     const [userPoints, setUserPoints] = React.useState<number>(0)
 
+    const dispatch = useDispatch()
+    const userData = useSelector((state:any) => state.user.value)
+
 
     // User clicking number buttons to answer math question, a new problem are generated regardless of correct or wrong. 
     function handleClick(index:number) {
       if (index === mathProblem.answer) {
         setUserPoints(userPoints + 1)
+        dispatch(add_points({points: 1}))
       } else {
         console.log("wrong")
       }
       setMathProblem(generateMathProblem())
     }
 
-  
+   
+    
+    React.useEffect(() => {
+      console.log("userData", userData)
+    }, [userData])
 
     // Generating answer boxes
     const numberboxes = () => {
@@ -32,7 +42,7 @@ export default function MathView (props: IAppProps) {
       // Mapping out all numbers in array, styling them in a blue square  
       return ( <> { array.map((box, i) => { return (<div key={i} onClick={() => handleClick(i + 1)} className="mathView_answer_box_number" ><p>{i + 1}</p></div>) }) } </> )
       
-    } // En of numberboxes()
+    } // End of numberboxes()
 
 
 
