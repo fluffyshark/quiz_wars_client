@@ -5,26 +5,35 @@ import {RegionData} from "./RegionData"
 interface UserRegionData {
     id:number
     points_red:number
+    points_blue:number
+    points_yellow:number
+    points_green:number
+    find: (predicate: (value: UserRegionData, index: number, obj: UserRegionData[]) => boolean) => UserRegionData | undefined;
+    item: UserRegionData;
 }
 
-const initialState = {value: RegionData } 
+ 
 
 const RegionSlice = createSlice({
     name: "regions",
-    initialState, 
+    initialState: {value: RegionData},
     reducers: {
-        add_point: (state, action:PayloadAction<UserRegionData>) => {
-            state.value.map((region) => {
-                if (region.id === action.payload.id) {
-                    region.points_red += action.payload.points_red
+        updateRegionData: (state, action:PayloadAction<UserRegionData>) => {
+            state.value.map((region, i) => {
+                let matchingRegion = action.payload.find(item => item.id === region.id);
+                if (matchingRegion) {
+                    region.points_red = matchingRegion.points_red
+                    region.points_blue = matchingRegion.points_blue
+                    region.points_yellow = matchingRegion.points_yellow
+                    region.points_green = matchingRegion.points_green
                 }
             })
+            
         },
-
-       
+        
     }
 })
 
-export const {add_point} = RegionSlice.actions
+export const {updateRegionData} = RegionSlice.actions
 export default RegionSlice.reducer
 

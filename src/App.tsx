@@ -1,6 +1,7 @@
 import { useEffect } from "react";
 import { io, Socket } from "socket.io-client";
 import {BrowserRouter, Routes, Route } from "react-router-dom";
+import { updateRegionData } from "./redux/RegionReducer"
 import "./styles/styles.css"
 import Overview from './pages/overView/Overview';
 import RegionSelectView from './pages/regionSelectView/RegionSelectView';
@@ -11,10 +12,12 @@ import GameSelect from './pages/gameSelect/GameSelect';
 import JoinView from './pages/joinView/JoinView';
 import HostLobbyView from './pages/hostLobbyView/HostLobbyView';
 import PlayerLobbyView from './pages/playerLobbyView/PlayerLobbyView';
+import { useDispatch } from "react-redux";
 
 
 interface ServerToClientEvents {
   testing_from_server: (text:string) => void;
+  send_gamedata_to_users: (gameData:any) => void;
 
   // Template of types
   noArg: () => void;
@@ -27,21 +30,36 @@ interface ClientToServerEvents {
 }
 
 
+
 function App() {
+
+  const dispatch = useDispatch()
 
   const socket: Socket<ServerToClientEvents, ClientToServerEvents> = io("http://localhost:3001");
   
   // Emiting test message to server when loaded
-  socket.emit("testing_from_client", "OK from client");
+  //socket.emit("testing_from_client", "OK from client");
+
 
   useEffect(() => {
+    
     // Receive message from server as response after sending "testing_from_client"
     socket.on("testing_from_server", (text) => {
-      console.log("Message from Server to Client: ", text)
+     // console.log("Message from Server to Client: ", text)
     })
+
+
+    // Receive message from server as response after sending "testing_from_client"
+    socket.on("send_gamedata_to_users", (gameData) => {
+      // Send updated version gameData of RegionReducer 
+      dispatch(updateRegionData(gameData))
+      console.log("Client GameData ", gameData)
+    })
+
+
   }, [socket])
 
-
+  
 
   return (
     <BrowserRouter>

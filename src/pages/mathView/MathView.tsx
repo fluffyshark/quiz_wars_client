@@ -33,7 +33,7 @@ export default function MathView ({socket}:SocketProps) {
         // One point is sent and added to userData in UserReducer
         dispatch(add_points({points: 1}))
         // One point is sent to server by socket together with the current region (and other data to direct where the point should be added) 
-        socket.emit("user_got_point", {user:"Robin", points:1, regionId:userData.selectedRegionId, gameCode:123456789, team:"red"});
+        socket.emit("user_got_point", {userName:"Robin", points:1, regionId:userData.selectedRegionId, gameCode:123456789, team:"red"});
       } else {
         console.log("wrong")
       }
@@ -41,7 +41,11 @@ export default function MathView ({socket}:SocketProps) {
       setMathProblem(generateMathProblem())
     }
 
-
+    
+    React.useEffect(() => {
+      console.log("regionsList", regionsList)
+    }, [regionsList])
+    
 
     // Generating answer boxes
     const numberboxes = () => {

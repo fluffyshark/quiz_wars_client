@@ -1,7 +1,6 @@
 import {useEffect, useState} from 'react';
 import { useSelector, useDispatch } from 'react-redux/es/exports';
 import { select_region } from "../../redux/UserReducer"
-import { add_point } from "../../redux/RegionReducer"
 import Map from "../../components/map/Map"
 import regions from "../../images/RegionImageExport"
 import region01 from "../../images/regions/region01.webp"
@@ -45,16 +44,6 @@ export default function RegionSelectView (props: IAppProps) {
     dispatch(select_region({selectedRegionId: regionsList[regionNr].id}))
     
   } // End of addRegionData()
-
-
-
-  // When user get points it is transferred to regionData, to the region which id is in userData.
-  useEffect(() => {
-    const point = userData.points
-    const id = userData.selectedRegionId
-    dispatch(add_point({points_red: point, id: id}))
-  }, [userData])
-
 
 
   useEffect(() => {
