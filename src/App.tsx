@@ -51,7 +51,7 @@ function App() {
         <Route path="/overview" element={<Overview />}></Route>  
         <Route path="/regionselect" element={<RegionSelectView />}></Route> 
         <Route path="/quizview" element={<QuizView />}></Route>  
-        <Route path="/mathview" element={<MathView />}></Route>  
+        <Route path="/mathview" element={<MathView socket={socket} />}></Route>  
         <Route path="/hostlobby" element={<HostLobbyView />}></Route>  
         <Route path="/playerlobby" element={<PlayerLobbyView />}></Route>  
         <Route path="/join" element={<JoinView />}></Route> 
