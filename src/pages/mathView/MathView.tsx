@@ -4,6 +4,9 @@ import { useSelector, useDispatch } from "react-redux"
 import { generateMathProblem } from './components/GenerateMathProblem';
 import { add_points } from "../../redux/UserReducer"
 
+import icon_toMap from "../../images/generall/icon_toMap.png"
+import { Link } from 'react-router-dom';
+
 
 interface SocketProps {
   socket: SocketIOClient.Socket;
@@ -61,7 +64,10 @@ export default function MathView ({socket}:SocketProps) {
   return (
     <div className='mathView'>
       <div className="mathView_question">
-        <div className="mathView_question_box"><p>{mathProblem.question}</p><p>{`${userPoints} points`}</p></div>
+        <div className="mathView_question_box">
+          <Link to="/regionselect"><img src={icon_toMap} alt="toMapImg" /></Link>
+          <p>{mathProblem.question}</p>
+          <p>{`${userPoints} points`}</p></div>
       </div>
       <div className="mathView_answer">
         <div className="mathView_answer_box">

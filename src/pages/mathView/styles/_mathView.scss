@@ -21,9 +21,14 @@ $boxHeight: calc((100% / 10));
             @media screen and (orientation: portrait) and (max-width: 800px) {width: 730px;}
             
             p{color: white; font-weight: bold; margin: 0;}
-            p:nth-child(1) {font-size: 100px;}
-            p:nth-child(2) {font-size: 20px; position: absolute; top: 5%; left: 85%;}
+            p:nth-child(2) {font-size: 100px;}
+            p:nth-child(3) {font-size: 20px; position: absolute; top: 5%; left: 85%;}
             
+            img {
+                width: 45px; height: 45px; margin: 10px;
+                position: absolute; top: 0; left: 0;
+                cursor: pointer;
+            }
         }
     }
 

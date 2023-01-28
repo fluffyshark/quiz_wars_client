@@ -132,6 +132,7 @@
   width: 100%;
   box-shadow: -12px 0 15px -5px rgba(0, 0, 0, 0.5), -12px 0 8px -5px rgba(0, 0, 0, 0.5);
   z-index: 100;
+  position: relative;
 }
 .regionSelectView_stats_titleSection {
   width: 100%;
@@ -146,6 +147,15 @@
   font-size: 60px;
   font-weight: bold;
   margin: 0;
+}
+.regionSelectView_stats_titleSection img {
+  width: 45px;
+  height: 45px;
+  margin: 10px;
+  position: absolute;
+  top: 0;
+  left: 0;
+  cursor: pointer;
 }
 .regionSelectView_stats_pointSection {
   width: 100%;
@@ -411,14 +421,23 @@
   font-weight: bold;
   margin: 0;
 }
-.mathView_question_box p:nth-child(1) {
+.mathView_question_box p:nth-child(2) {
   font-size: 100px;
 }
-.mathView_question_box p:nth-child(2) {
+.mathView_question_box p:nth-child(3) {
   font-size: 20px;
   position: absolute;
   top: 5%;
   left: 85%;
+}
+.mathView_question_box img {
+  width: 45px;
+  height: 45px;
+  margin: 10px;
+  position: absolute;
+  top: 0;
+  left: 0;
+  cursor: pointer;
 }
 .mathView_answer {
   width: 100%;

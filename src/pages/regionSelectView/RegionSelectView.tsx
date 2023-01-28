@@ -5,6 +5,8 @@ import { add_point } from "../../redux/RegionReducer"
 import Map from "../../components/map/Map"
 import regions from "../../images/RegionImageExport"
 import region01 from "../../images/regions/region01.webp"
+import icon_toMath from "../../images/generall/icon_toMath.png"
+import { Link } from 'react-router-dom';
 
 export interface IAppProps {
 }
@@ -66,7 +68,10 @@ export default function RegionSelectView (props: IAppProps) {
     <div className='regionSelectView'>
       <Map height={innerHeight} width={mapWidth} setRegionId={setRegionId}/>
       <div id="statsSection" className="regionSelectView_stats">
-        <div className="regionSelectView_stats_titleSection"><p>Quiz Wars</p></div>
+        <div className="regionSelectView_stats_titleSection">
+          <Link to="/mathview"><img src={icon_toMath} alt="" /></Link>
+          <p>Quiz Wars</p>
+        </div>
         
         <div className="regionSelectView_stats_pointSection">
           <div className="regionSelectView_stats_pointSection_title"><p>Victory Points</p></div>
