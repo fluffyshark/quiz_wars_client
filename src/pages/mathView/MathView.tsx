@@ -1,14 +1,17 @@
 import * as React from 'react';
+import * as SocketIOClient from 'socket.io-client';
 import { useSelector, useDispatch } from "react-redux"
 import { generateMathProblem } from './components/GenerateMathProblem';
 import { add_points } from "../../redux/UserReducer"
 
 
-export interface MathViewProps {
-  socket:any
+interface SocketProps {
+  socket: SocketIOClient.Socket;
 }
 
-export default function MathView ({socket}:MathViewProps) {
+
+
+export default function MathView ({socket}:SocketProps) {
     
     const [mathProblem, setMathProblem] = React.useState<{answer: number; question: string}>({answer: 0, question: "0 x 0"})
     const [userPoints, setUserPoints] = React.useState<number>(0)
@@ -17,7 +20,7 @@ export default function MathView ({socket}:MathViewProps) {
     const userData = useSelector((state:any) => state.user.value)
     const regionsList = useSelector((state:any) => state.regions.value)
 
-
+    
     // User clicking number buttons to answer math question, a new problem are generated regardless of correct or wrong. 
     function handleClick(index:number) {
       // If user clicks the button which number match the answer of the current math question
@@ -27,7 +30,7 @@ export default function MathView ({socket}:MathViewProps) {
         // One point is sent and added to userData in UserReducer
         dispatch(add_points({points: 1}))
         // One point is sent to server by socket together with the current region (and other data to direct where the point should be added) 
-        socket.emit("user_got_point", {user:"Robin", points:1, regionId:0, gameCode:123456789});
+        socket.emit("user_got_point", {user:"Robin", points:1, regionId:userData.selectedRegionId, gameCode:123456789, team:"red"});
       } else {
         console.log("wrong")
       }
