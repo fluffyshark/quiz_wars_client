@@ -1,9 +1,12 @@
 import * as React from 'react';
 
 export interface IAppProps {
+
 }
 
+
 export default function StartView (props: IAppProps) {
+
   return (
     <div className='startView'>
       <div className="startView_title"><p>Quiz Wars</p></div>
