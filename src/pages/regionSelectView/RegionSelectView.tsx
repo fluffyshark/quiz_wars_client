@@ -20,7 +20,6 @@ export default function RegionSelectView (props: IAppProps) {
 
   // Accessing RegionData from redux
   const regionsList = useSelector((state:any) => state.regions.value)
-  const userData = useSelector((state:any) => state.user.value)
   const dispatch = useDispatch()
 
   // Valiables used to adjust map to viewport

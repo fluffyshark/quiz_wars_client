@@ -1,4 +1,8 @@
 import React, { useState } from "react";
+import { useSelector } from 'react-redux/es/exports';
+
+import { prevRegionColor } from "./components/prevRegionColor"
+import { selectedRegionColor } from "./components/selectedRegionColor"
 
 
 type RegionIdProps = {
@@ -7,15 +11,28 @@ type RegionIdProps = {
 
 
 function MapSVG({setRegionId}: RegionIdProps) {
-
-
   
+  const [prevRegionId, setPrevRegionId] = useState<string>("")
+
+  const regionsList = useSelector((state:any) => state.regions.value)
+  const userData = useSelector((state:any) => state.user.value)
+  
+
+  // Clicking on a region in the .svg map
   const handleClick = (id:string) => {
-   
+    
+    // Return previous clicked region to transparent color
+    if (prevRegionId !== "") {
+      (document.getElementById(prevRegionId) as HTMLFormElement).style.fill = prevRegionColor(prevRegionId, regionsList);
+      (document.getElementById(prevRegionId) as HTMLFormElement).style.opacity = "1";
+    }
 
-    (document.getElementById(id) as HTMLFormElement).style.fill = "black"; 
-
+    (document.getElementById(id) as HTMLFormElement).style.fill = selectedRegionColor(userData); 
+    (document.getElementById(id) as HTMLFormElement).style.opacity = "0.5";
+    
     setRegionId(id);
+    setPrevRegionId(id)
+    
   }
 
 

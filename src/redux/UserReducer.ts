@@ -6,6 +6,7 @@ interface UserData {
     gameCode:string
     points:UserPoints
     selectedRegionId:SelectedRegion
+    team:string
 }
 interface UserPoints {
     points:number
@@ -14,7 +15,7 @@ interface SelectedRegion {
     selectedRegionId:number
 }
 
-export var userData = {userId: "", username: "", gameCode:"",  points: 0, selectedRegionId: 0} 
+export var userData = {userId: "", username: "", gameCode:"",  points: 0, selectedRegionId: 0, team:"Blue"} 
 
 const UserSlice = createSlice({
     name: "user",
