@@ -42,10 +42,6 @@ export default function MathView ({socket}:SocketProps) {
     }
 
     
-    React.useEffect(() => {
-      console.log("regionsList", regionsList)
-    }, [regionsList])
-    
 
     // Generating answer boxes
     const numberboxes = () => {
