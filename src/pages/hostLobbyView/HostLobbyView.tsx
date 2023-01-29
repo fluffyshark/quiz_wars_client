@@ -1,4 +1,5 @@
 import * as React from 'react';
+import { Link } from 'react-router-dom';
 
 export interface IAppProps {
 }
@@ -20,7 +21,9 @@ export default function hostLobbyView (props: IAppProps) {
             <div className="hostLobbyView_teams_box"><p>Green Team</p><p>10</p></div>
         </div>
 
-        <div className="hostLobbyView_start"><div className="hostLobbyView_start_button"><p>Start Game</p></div></div>
+        <Link style={{ textDecoration: 'none' }} to="/overview">
+          <div className="hostLobbyView_start"><div className="hostLobbyView_start_button"><p>Start Game</p></div></div>
+        </Link>
     </div>
   );
 }

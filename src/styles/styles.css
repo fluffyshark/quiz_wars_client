@@ -735,15 +735,15 @@
 .joinView_container_box:nth-child(9):hover {
   background-color: #106fec;
 }
-.joinView_container_box:nth-child(10) {
+.joinView_container #joinGameBtn {
   width: 250px;
   height: 35px;
   margin-top: 50px;
 }
-.joinView_container_box:nth-child(10) p {
+.joinView_container #joinGameBtn p {
   font-size: 20px;
 }
-.joinView_container_box:nth-child(10):hover {
+.joinView_container #joinGameBtn:hover {
   background-color: #106fec;
 }
 

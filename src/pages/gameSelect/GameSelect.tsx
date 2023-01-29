@@ -1,4 +1,5 @@
 import * as React from 'react';
+import { Link } from 'react-router-dom';
 
 export interface IAppProps {
 }
@@ -21,9 +22,11 @@ export default function GameSelect (props: IAppProps) {
             </div>
         </div>
       
-        <div className="gameSelect_start">
-            <div className="gameSelect_start_button"><p>Start Game</p></div>
-        </div>
+        <Link style={{ textDecoration: 'none' }} to="/hostlobby">
+            <div className="gameSelect_start">
+                <div className="gameSelect_start_button"><p>Start Game</p></div>
+            </div>
+        </Link>
 
     </div>
   );

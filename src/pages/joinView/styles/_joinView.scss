@@ -53,14 +53,14 @@
         &_box:nth-child(8):hover {background-color: #106fec;}
         &_box:nth-child(9):hover {background-color: #106fec;}
 
-        &_box:nth-child(10) {
+        #joinGameBtn {
             width: 250px; 
             height: 35px;
             margin-top: 50px;
             p {font-size: 20px;}
         }
 
-        &_box:nth-child(10):hover {background-color: #106fec;}
+        #joinGameBtn:hover {background-color: #106fec;}
         
     }
 

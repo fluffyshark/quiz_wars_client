@@ -1,6 +1,7 @@
 import * as React from 'react';
 import icon_ok from "../../images/generall/icon_ok.png"
 import icon_nope from "../../images/generall/icon_nope.png"
+import { Link } from 'react-router-dom';
 
 export interface IAppProps {
 }
@@ -45,9 +46,7 @@ export default function JoinView (props: IAppProps) {
                 </div>
 
 
-                <div className="joinView_container_box">
-                    <p>Join</p>
-                </div>
+                <Link style={{ textDecoration: 'none' }} to="/playerlobby"><div id="joinGameBtn" className="joinView_container_box"><p>Join</p></div></Link>
 
             </form>
             
