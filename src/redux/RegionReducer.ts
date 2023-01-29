@@ -8,6 +8,7 @@ interface UserRegionData {
     points_blue:number
     points_yellow:number
     points_green:number
+    controlledBy:string
     find: (predicate: (value: UserRegionData, index: number, obj: UserRegionData[]) => boolean) => UserRegionData | undefined;
     item: UserRegionData;
 }
@@ -26,6 +27,7 @@ const RegionSlice = createSlice({
                     region.points_blue = matchingRegion.points_blue
                     region.points_yellow = matchingRegion.points_yellow
                     region.points_green = matchingRegion.points_green
+                    region.controlledBy = matchingRegion.controlledBy
                 }
             })
             
