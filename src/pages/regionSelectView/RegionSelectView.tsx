@@ -45,7 +45,7 @@ export default function RegionSelectView (props: IAppProps) {
     // Set selected region object as local state  
     setSelectedRegion(regionsList[regionNr])
     
-    // Set selected region id in global user state
+    // Set selected region id in global user state (UserReducer)
     dispatch(select_region({selectedRegionId: regionsList[regionNr].id}))
     
   } // End of addRegionData()
@@ -126,7 +126,7 @@ export default function RegionSelectView (props: IAppProps) {
             <p>POINTS IN REGION</p>
             <p>23</p>
             <p>YOUR POINTS IN REGION</p>
-            <p>0</p>
+            <p>{selectedRegion.your_points}</p>
             <div className='regionPoints_line'></div>
           </div>
         </div>

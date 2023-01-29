@@ -13,6 +13,12 @@ interface UserRegionData {
     item: UserRegionData;
 }
 
+interface UserRegionPoints {
+    id:number
+    points:number
+}
+
+
  
 
 const RegionSlice = createSlice({
@@ -32,10 +38,19 @@ const RegionSlice = createSlice({
             })
             
         },
+
+        add_users_point_to_region: (state, action:PayloadAction<UserRegionPoints>) => {
+            state.value.map((region, i) => {
+                if (region.id === action.payload.id) {
+                    region.your_points += action.payload.points
+                }
+            })
+            
+        },
         
     }
 })
 
-export const {updateRegionData} = RegionSlice.actions
+export const {updateRegionData, add_users_point_to_region} = RegionSlice.actions
 export default RegionSlice.reducer
 

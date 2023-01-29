@@ -3,7 +3,7 @@ import * as SocketIOClient from 'socket.io-client';
 import { useSelector, useDispatch } from "react-redux"
 import { generateMathProblem } from './components/GenerateMathProblem';
 import { add_points } from "../../redux/UserReducer"
-
+import { add_users_point_to_region } from "../../redux/RegionReducer"
 import icon_toMap from "../../images/generall/icon_toMap.png"
 import { Link } from 'react-router-dom';
 
@@ -32,6 +32,8 @@ export default function MathView ({socket}:SocketProps) {
         setUserPoints(userPoints + 1)
         // One point is sent and added to userData in UserReducer
         dispatch(add_points({points: 1}))
+        // One point is sent and added to your_points in RegionData in RegionReducer
+        dispatch(add_users_point_to_region({id: userData.selectedRegionId, points: 1}))
         // One point is sent to server by socket together with the current region (and other data to direct where the point should be added) 
         socket.emit("user_got_point", {userName:"Robin", points:1, regionId:userData.selectedRegionId, gameCode:123456789, team:"Red"});
       } else {
