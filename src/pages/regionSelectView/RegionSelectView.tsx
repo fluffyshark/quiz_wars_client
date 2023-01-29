@@ -2,18 +2,16 @@ import {useEffect, useState} from 'react';
 import { useSelector, useDispatch } from 'react-redux/es/exports';
 import { select_region } from "../../redux/UserReducer"
 import Map from "../../components/map/Map"
-import regions from "../../images/RegionImageExport"
 import region01 from "../../images/regions/region01.webp"
 import icon_toMath from "../../images/generall/icon_toMath.png"
 import { Link } from 'react-router-dom';
 
+import { handleRegionOwnership } from './components/handleRegionOwnership';
+
 export interface IAppProps {
 }
 
-interface Region {
-  controlledBy: "Red" | "Blue" | "Yellow" | "Green" | "No Team";
-  mapId: string
-}
+
 
 export default function RegionSelectView (props: IAppProps) {
 
@@ -61,35 +59,13 @@ export default function RegionSelectView (props: IAppProps) {
     console.log("regionsList", regionsList)
 
     // Change color of regions to represent team ownership | Need to delay function for image to load  
-    setTimeout(() => { handleRegionOwnership() }, 1000)
+    setTimeout(() => { handleRegionOwnership(regionsList) }, 1000)
     
   }, [regionsList])
   
 
 
-  // Change color of regions to represent team ownership
-  function handleRegionOwnership() {
-    regionsList.map((region: Region, i: number) => {
-      switch (region.controlledBy) {
-        case "Red": 
-          (document.getElementById(region.mapId) as HTMLFormElement).style.fill = "#f35c81";
-          break;
-        case "Blue": 
-          (document.getElementById(region.mapId) as HTMLFormElement).style.fill = "#1cb8ff";
-          break;
-        case "Yellow": 
-          (document.getElementById(region.mapId) as HTMLFormElement).style.fill = "#ff9b47";
-          break;
-        case "Green": 
-          (document.getElementById(region.mapId) as HTMLFormElement).style.fill = "#65e92b";
-          break;
-        case "No Team": 
-          (document.getElementById(region.mapId) as HTMLFormElement).style.fill = "#65e92b00";
-          break;
-        default: console.log("handleRegionOwnership failed")
-      }
-    });
-}
+
 
 
 

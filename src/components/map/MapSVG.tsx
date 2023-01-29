@@ -1,4 +1,5 @@
-import React from "react";
+import React, { useState } from "react";
+
 
 type RegionIdProps = {
   setRegionId: (regionId: string) => void;
@@ -6,11 +7,14 @@ type RegionIdProps = {
 
 
 function MapSVG({setRegionId}: RegionIdProps) {
+
+
   
-
   const handleClick = (id:string) => {
+   
 
-    (document.getElementById(id) as HTMLFormElement).style.fill = "rgba(255,154,70,1)"; 
+    (document.getElementById(id) as HTMLFormElement).style.fill = "black"; 
+
     setRegionId(id);
   }
 
