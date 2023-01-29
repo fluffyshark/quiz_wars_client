@@ -70,7 +70,7 @@ function App() {
         <Route path="/regionselect" element={<RegionSelectView />}></Route> 
         <Route path="/quizview" element={<QuizView />}></Route>  
         <Route path="/mathview" element={<MathView socket={socket} />}></Route>  
-        <Route path="/hostlobby" element={<HostLobbyView />}></Route>  
+        <Route path="/hostlobby" element={<HostLobbyView socket={socket} />}></Route>  
         <Route path="/playerlobby" element={<PlayerLobbyView />}></Route>  
         <Route path="/join" element={<JoinView />}></Route> 
       </Routes>

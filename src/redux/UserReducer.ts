@@ -1,12 +1,12 @@
 import {createSlice, PayloadAction} from "@reduxjs/toolkit"
 
 interface UserData {
-    userId:string
+    userId?:string
     username:string
-    gameCode:string
-    points:UserPoints
-    selectedRegionId:SelectedRegion
-    team:string
+    gameCode:number
+    points?:UserPoints
+    selectedRegionId?:SelectedRegion
+    team?:string
 }
 interface UserPoints {
     points:number
@@ -15,12 +15,17 @@ interface SelectedRegion {
     selectedRegionId:number
 }
 
-export var userData = {userId: "", username: "", gameCode:"",  points: 0, selectedRegionId: 0, team:"Blue"} 
+export var userData = {userId: "", username: "", gameCode: 0,  points: 0, selectedRegionId: 0, team:"Blue"} 
 
 const UserSlice = createSlice({
     name: "user",
     initialState: {value: userData},
     reducers: {
+        add_user_info: (state, action:PayloadAction<UserData>) => {
+            state.value.username = action.payload.username
+            state.value.gameCode = action.payload.gameCode
+            console.log("action.payload", action.payload)
+        },
         add_points: (state, action:PayloadAction<UserPoints>) => {
             state.value.points += action.payload.points
         },
@@ -32,6 +37,6 @@ const UserSlice = createSlice({
     }
 })
 
-export const {add_points, select_region} = UserSlice.actions
+export const {add_user_info, add_points, select_region} = UserSlice.actions
 export default UserSlice.reducer
 
