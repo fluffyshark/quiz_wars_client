@@ -71,6 +71,14 @@ export default function HostLobbyView ({socket}:SocketProps) {
     }, [])
 
 
+    
+    function hostStartGame() {
+      // Use socket to send to all users that the game are starting, sending game code to use so that only users in current game (room) are affected
+      socket.emit("host_starting_game", gameCode);
+      // After one second host leave lobby to navigate to overView, time delay is for giving socket.io enough time to execute
+      setTimeout(() => {navigate('/overview')}, 1000)
+    }
+
 
   return (
     <div className='hostLobbyView'>
@@ -89,7 +97,7 @@ export default function HostLobbyView ({socket}:SocketProps) {
         </div>
 
         <Link style={{ textDecoration: 'none' }} to="/overview">
-          <div className="hostLobbyView_start"><div className="hostLobbyView_start_button"><p>Start Game</p></div></div>
+          <div onClick={() => {hostStartGame()}} className="hostLobbyView_start"><div className="hostLobbyView_start_button"><p>Start Game</p></div></div>
         </Link>
     </div>
   );
