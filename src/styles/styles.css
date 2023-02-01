@@ -708,6 +708,12 @@
 .joinView_container_box input:focus {
   outline: none;
 }
+.joinView_container_box .joinView_container_box_error {
+  position: absolute;
+  top: 52px;
+  font-size: 12px;
+  color: red;
+}
 .joinView_container_box img {
   height: 100%;
   position: absolute;
@@ -716,12 +722,18 @@
 }
 .joinView_container_box:nth-child(6) {
   border-bottom: 0px;
+  cursor: pointer;
 }
 .joinView_container_box:nth-child(7) {
   border-bottom: 0px;
+  cursor: pointer;
 }
 .joinView_container_box:nth-child(8) {
   border-bottom: 0px;
+  cursor: pointer;
+}
+.joinView_container_box:nth-child(9) {
+  cursor: pointer;
 }
 .joinView_container_box:nth-child(6):hover {
   background-color: #106fec;
@@ -737,14 +749,39 @@
 }
 .joinView_container #joinGameBtn {
   width: 250px;
-  height: 35px;
+  height: 45px;
   margin-top: 50px;
+  cursor: pointer;
 }
 .joinView_container #joinGameBtn p {
   font-size: 20px;
 }
+.joinView_container #notReadyBtn {
+  width: 250px;
+  height: 45px;
+  margin-top: 50px;
+  opacity: 0.5;
+}
+.joinView_container #notReadyBtn p {
+  font-size: 20px;
+}
 .joinView_container #joinGameBtn:hover {
   background-color: #106fec;
+}
+.joinView_container #notReadyBtn:hover {
+  background-color: gray;
+}
+.joinView_container #notReadyBtn:hover p {
+  font-size: 0px;
+}
+.joinView_container button[disabled] {
+  background-color: #3cb8fc;
+  color: white;
+}
+.joinView_container button[disabled]:hover:before {
+  content: "Complete Fields";
+  font-size: 15px;
+  font-weight: bold;
 }
 
 .hostLobbyView {

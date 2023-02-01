@@ -19,11 +19,12 @@ export default function MathView ({socket}:SocketProps) {
     const [mathProblem, setMathProblem] = React.useState<{answer: number; question: string}>({answer: 0, question: "0 x 0"})
     const [userPoints, setUserPoints] = React.useState<number>(0)
 
+
     const dispatch = useDispatch()
     const userData = useSelector((state:any) => state.user.value)
-    const regionsList = useSelector((state:any) => state.regions.value)
 
     
+
     // User clicking number buttons to answer math question, a new problem are generated regardless of correct or wrong. 
     function handleClick(index:number) {
       // If user clicks the button which number match the answer of the current math question

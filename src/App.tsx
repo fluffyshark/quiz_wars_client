@@ -1,4 +1,4 @@
-import { useEffect } from "react";
+import { useEffect, useState } from "react";
 import { io, Socket } from "socket.io-client";
 import {BrowserRouter, Routes, Route } from "react-router-dom";
 import { updateRegionData } from "./redux/RegionReducer"
@@ -18,6 +18,7 @@ import { useDispatch } from "react-redux";
 interface ServerToClientEvents {
   testing_from_server: (text:string) => void;
   send_gamedata_to_users: (gameData:any) => void;
+  sending_user_gamecodes_request:  (allGameCodes:any) => void;
 
   // Template of types
   noArg: () => void;
@@ -33,22 +34,18 @@ interface ClientToServerEvents {
 
 function App() {
 
+  const [team_red, setTeam_red] = useState<string[]>([])
+  const [team_blue, setTeam_blue] = useState<string[]>([])
+  const [team_yellow, setTeam_yellow] = useState<string[]>([])
+  const [team_green, setTeam_green] = useState<string[]>([])
+
   const dispatch = useDispatch()
 
   const socket: Socket<ServerToClientEvents, ClientToServerEvents> = io("http://localhost:3001");
   
-  // Emiting test message to server when loaded
-  //socket.emit("testing_from_client", "OK from client");
-
 
   useEffect(() => {
     
-    // Receive message from server as response after sending "testing_from_client"
-    socket.on("testing_from_server", (text) => {
-     // console.log("Message from Server to Client: ", text)
-    })
-
-
     // Receive message from server as response after sending "testing_from_client"
     socket.on("send_gamedata_to_users", (gameData) => {
       // Send updated version gameData of RegionReducer 
@@ -56,10 +53,9 @@ function App() {
       console.log("Client GameData ", gameData)
     })
 
-
   }, [socket])
 
-  
+
 
   return (
     <BrowserRouter>
@@ -71,8 +67,8 @@ function App() {
         <Route path="/quizview" element={<QuizView />}></Route>  
         <Route path="/mathview" element={<MathView socket={socket} />}></Route>  
         <Route path="/hostlobby" element={<HostLobbyView socket={socket} />}></Route>  
-        <Route path="/playerlobby" element={<PlayerLobbyView />}></Route>  
-        <Route path="/join" element={<JoinView />}></Route> 
+        <Route path="/playerlobby" element={<PlayerLobbyView socket={socket}/>}></Route>  
+        <Route path="/join" element={<JoinView socket={socket} />}></Route> 
       </Routes>
     </BrowserRouter>
   );
