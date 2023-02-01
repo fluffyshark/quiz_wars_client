@@ -55,6 +55,7 @@ export default function JoinView ({socket}:SocketProps) {
       setTimeout(() => {navigate('/playerlobby')}, 1000)
       };
 
+     
 
 
     // Only show join button if the following conditions are met: team selected, username not empty, gamecode 9 numbers, gamecode contains no spaces or letters

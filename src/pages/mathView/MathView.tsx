@@ -36,7 +36,8 @@ export default function MathView ({socket}:SocketProps) {
         // One point is sent and added to your_points in RegionData in RegionReducer
         dispatch(add_users_point_to_region({id: userData.selectedRegionId, points: 1}))
         // One point is sent to server by socket together with the current region (and other data to direct where the point should be added) 
-        socket.emit("user_got_point", {userName:"Robin", points:1, regionId:userData.selectedRegionId, gameCode:123456789, team:userData.team});
+        socket.emit("user_got_point", {userName:"Robin", points:1, regionId:userData.selectedRegionId, gameCode:userData.gameCode, team:userData.team});
+        console.log(userData.team)
       } else {
         console.log("wrong")
       }

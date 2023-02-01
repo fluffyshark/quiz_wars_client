@@ -46,7 +46,7 @@ export default function HostLobbyView ({socket}:SocketProps) {
     socket.emit("host_create_room", String(hostCode));
 
     // Send host data to redux
-    dispatch(add_user_info({username: "HOST", gameCode: String(hostCode)}))
+    dispatch(add_user_info({username: "HOST", gameCode: String(hostCode), team: ""}))
  
     }
 
