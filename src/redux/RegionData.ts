@@ -77,7 +77,4 @@ export const RegionData = [
     {id: 66, mapId:"mapID66", name:"Dessert's Crossing", img: regions[66], points_red: 0, points_blue: 0, points_yellow: 0, points_green: 0, your_points: 0, controlledBy: "No Team"},
     {id: 67, mapId:"mapID67", name:"Frostwood", img: regions[67], points_red: 0, points_blue: 0, points_yellow: 0, points_green: 0, your_points: 0, controlledBy: "No Team"},
     {id: 68, mapId:"mapID68", name:"Frostwatch", img: regions[68], points_red: 0, points_blue: 0, points_yellow: 0, points_green: 0, your_points: 0, controlledBy: "No Team"},
-    {id: 69, mapId:"mapID69", name:"Icehold", img: regions[69], points_red: 0, points_blue: 0, points_yellow: 0, points_green: 0, your_points: 0, controlledBy: "No Team"},
-    {id: 70, mapId:"mapID70", name:"Snowcrown", img: regions[70], points_red: 0, points_blue: 0, points_yellow: 0, points_green: 0, your_points: 0, controlledBy: "No Team"},
-
 ]

@@ -33,7 +33,10 @@ function MapSVG({setRegionId}: RegionIdProps) {
     setRegionId(id);
     setPrevRegionId(id)
     
+    console.log(id)
   }
+
+
 
 
   return (

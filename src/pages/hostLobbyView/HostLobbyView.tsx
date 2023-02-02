@@ -24,7 +24,7 @@ export default function HostLobbyView ({socket}:SocketProps) {
 
   function hostGame() {
 
-    // Generate random number that will be the gameCode (now called hostCode), it will also be the socket room.
+    // Generate random number that will be the gameCode (now called hostCode), the number will also be the socket room.
     const hostCode = Math.floor(Math.random() * 999999999);
      
     // Turn hostCode into string and place it in local state, to be used in other function like hostStartGame()
