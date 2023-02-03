@@ -1,14 +1,72 @@
-export function getAdjacentRegion() {
-    let adjacent = false
-
+// Return true or false if clicked region are either: (1) controlled by user's team or (2) adjacent to any of the team's controlled regions 
+export function canClickOnRegion(mapID:string, regionsList:any[], userData: { team: string }): boolean {
     
+  let region_controlled_or_adjacent = false
 
+  // Get array of regions controlled by user's team
+  const getControlledRegions = getRegionsControlledByTeam(regionsList, userData)
+  
+  // If the regions controlled by user's team includes the clicked region, then return true
+  if (getControlledRegions.includes(mapID)) {
+    region_controlled_or_adjacent = true
+    
+  // else if clicked region is included among the adjacencies the team's controlled regions, then return true
+  } else if (getAdjacentRegion(mapID, getControlledRegions)) {
+    region_controlled_or_adjacent = true
+  }
+    
+    return region_controlled_or_adjacent
+}
+
+
+
+
+  //Return true or false if clicked region is adjacant to an region already controlled by user's team 
+  function getAdjacentRegion(mapID:string, getControlledRegions:string[]): boolean {
+    let adjacent = false
+    
+    // Create an array that will be filled with all adjacent regions team controlled regions
+    let allAdjacenciesForControlledRegions: string[] = [];
+
+    // Filled the array with all adjacencies for controlled regions
+    getControlledRegions.map((region:string) => {
+      allAdjacenciesForControlledRegions.push(...adjacentRegions[region])
+    })
+
+    // If any of the controlled region's adjacencies inclued clicked region, then return true
+    if (allAdjacenciesForControlledRegions.includes(mapID)) {
+      adjacent = true
+    }
+   
     return adjacent
   }
 
 
 
-  const adjacentRegions = {
+
+  // Return array of all regions controlled by user's team
+  function getRegionsControlledByTeam(regionsList: any[], userData: { team: string }): string[] {
+    
+    const redControlledRegionIds: string[] = [];
+    
+    // Fill the array with all regions controlled by user's team
+    regionsList.forEach(region => {
+      if (region.controlledBy === userData.team) {
+        redControlledRegionIds.push(region.mapId);
+      }
+    });
+
+    return redControlledRegionIds;
+  }
+
+
+
+
+  interface AdjacentRegions {
+    [key: string]: string[];
+  }
+
+  const adjacentRegions: AdjacentRegions = {
     mapID00: ["mapID68","mapID02","mapID01"],
     mapID01: ["mapID00","mapID02","mapID04","mapID03"],
     mapID02: ["mapID00","mapID01","mapID68","mapID06","mapID04",""],

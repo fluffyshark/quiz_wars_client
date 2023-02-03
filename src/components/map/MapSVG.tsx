@@ -3,7 +3,7 @@ import { useSelector } from 'react-redux/es/exports';
 
 import { prevRegionColor } from "./components/prevRegionColor"
 import { selectedRegionColor } from "./components/selectedRegionColor"
-
+import { canClickOnRegion } from "./components/adjacentRegions"
 
 type RegionIdProps = {
   setRegionId: (regionId: string) => void;
@@ -18,9 +18,17 @@ function MapSVG({setRegionId}: RegionIdProps) {
   const userData = useSelector((state:any) => state.user.value)
   
 
+
+  
+
+
+    
+
   // Clicking on a region in the .svg map
   const handleClick = (id:string) => {
     
+    console.log(canClickOnRegion(id, regionsList, userData))
+
     // Return previous clicked region to transparent color
     if (prevRegionId !== "") {
       (document.getElementById(prevRegionId) as HTMLFormElement).style.fill = prevRegionColor(prevRegionId, regionsList);
