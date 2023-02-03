@@ -73,7 +73,7 @@ export function canClickOnRegion(mapID:string, regionsList:any[], userData: { te
     mapID03: ["mapID01","mapID04","mapID08","mapID05"],
     mapID04: ["mapID01","mapID02","mapID03","mapID06","mapID07","mapID08"],
     mapID05: ["mapID03","mapID08","mapID09","mapID41"],
-    mapID06: ["mapID02","mapID68","mapID7","mapID04"],
+    mapID06: ["mapID02","mapID68","mapID07","mapID04"],
     mapID07: ["mapID06","mapID68","mapID11","mapID10","mapID08","mapID04"],
     mapID08: ["mapID03","mapID04","mapID07","mapID10","mapID09","mapID05"],
     mapID09: ["mapID05","mapID08","mapID10","mapID16","mapID51","mapID47","mapID43","mapID41"],

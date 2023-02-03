@@ -41,7 +41,7 @@ function MapSVG({setRegionId}: RegionIdProps) {
 
       
     }
-  //  console.log(id)
+    console.log(id)
 
   }
 
