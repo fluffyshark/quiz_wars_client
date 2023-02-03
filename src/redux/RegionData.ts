@@ -2,7 +2,7 @@ import regions from "../images/RegionImageExport"
 
 export const RegionData = [
     
-    {id: 0, mapId:"mapID00", name:"Forest's Edge", img: regions[0], points_red: 0, points_blue: 0, points_yellow: 0, points_green: 0, your_points: 0, controlledBy: "No Team"},
+    {id: 0, mapId:"mapID00", name:"Forest's Edge", img: regions[0], points_red: 0, points_blue: 0, points_yellow: 0, points_green: 0, your_points: 0, controlledBy: "Green"},
     {id: 1, mapId:"mapID01", name:"Emeraldwood", img: regions[1], points_red: 0, points_blue: 0, points_yellow: 0, points_green: 0, your_points: 0, controlledBy: "No Team"},
     {id: 2, mapId:"mapID02", name:"Verdant Vale", img: regions[2], points_red: 0, points_blue: 0, points_yellow: 0, points_green: 0, your_points: 0, controlledBy: "No Team"},
     {id: 3, mapId:"mapID03", name:"Greenbriar", img: regions[3], points_red: 0, points_blue: 0, points_yellow: 0, points_green: 0, your_points: 0, controlledBy: "No Team"},
@@ -43,7 +43,7 @@ export const RegionData = [
     {id: 35, mapId:"mapID35", name:"Shadow's Den", img: regions[35], points_red: 0, points_blue: 0, points_yellow: 0, points_green: 0, your_points: 0, controlledBy: "No Team"},
     {id: 36, mapId:"mapID36", name:"Leaf's fall", img: regions[36], points_red: 0, points_blue: 0, points_yellow: 0, points_green: 0, your_points: 0, controlledBy: "No Team"},
     {id: 37, mapId:"mapID37", name:"Blackmount", img: regions[37], points_red: 0, points_blue: 0, points_yellow: 0, points_green: 0, your_points: 0, controlledBy: "No Team"},
-    {id: 38, mapId:"mapID38", name:"Wicked Woods", img: regions[38], points_red: 0, points_blue: 0, points_yellow: 0, points_green: 0, your_points: 0, controlledBy: "No Team"},
+    {id: 38, mapId:"mapID38", name:"Wicked Woods", img: regions[38], points_red: 0, points_blue: 0, points_yellow: 0, points_green: 0, your_points: 0, controlledBy: "Red"},
     {id: 39, mapId:"mapID39", name:"Dread Peak", img: regions[39], points_red: 0, points_blue: 0, points_yellow: 0, points_green: 0, your_points: 0, controlledBy: "No Team"},
     {id: 40, mapId:"mapID40", name:"Shadowed Slope", img: regions[40], points_red: 0, points_blue: 0, points_yellow: 0, points_green: 0, your_points: 0, controlledBy: "No Team"},
 
@@ -60,7 +60,7 @@ export const RegionData = [
 
     {id: 51, mapId:"mapID51", name:"Crown Isle", img: regions[51], points_red: 0, points_blue: 0, points_yellow: 0, points_green: 0, your_points: 0, controlledBy: "No Team"},
     {id: 52, mapId:"mapID52", name:"Firewatch", img: regions[52], points_red: 0, points_blue: 0, points_yellow: 0, points_green: 0, your_points: 0, controlledBy: "No Team"},
-    {id: 53, mapId:"mapID53", name:"Ashmount", img: regions[53], points_red: 0, points_blue: 0, points_yellow: 0, points_green: 0, your_points: 0, controlledBy: "No Team"},
+    {id: 53, mapId:"mapID53", name:"Ashmount", img: regions[53], points_red: 0, points_blue: 0, points_yellow: 0, points_green: 0, your_points: 0, controlledBy: "Yellow"},
     {id: 54, mapId:"mapID54", name:"Scorched Summit", img: regions[54], points_red: 0, points_blue: 0, points_yellow: 0, points_green: 0, your_points: 0, controlledBy: "No Team"},
     {id: 55, mapId:"mapID55", name:"The Great Pass", img: regions[55], points_red: 0, points_blue: 0, points_yellow: 0, points_green: 0, your_points: 0, controlledBy: "No Team"},
     {id: 56, mapId:"mapID56", name:"Summergate", img: regions[56], points_red: 0, points_blue: 0, points_yellow: 0, points_green: 0, your_points: 0, controlledBy: "No Team"},
@@ -75,6 +75,6 @@ export const RegionData = [
     {id: 64, mapId:"mapID64", name:"Icy heights", img: regions[64], points_red: 0, points_blue: 0, points_yellow: 0, points_green: 0, your_points: 0, controlledBy: "No Team"},
     {id: 65, mapId:"mapID65", name:"Cold Peak", img: regions[65], points_red: 0, points_blue: 0, points_yellow: 0, points_green: 0, your_points: 0, controlledBy: "No Team"},
     {id: 66, mapId:"mapID66", name:"Dessert's Crossing", img: regions[66], points_red: 0, points_blue: 0, points_yellow: 0, points_green: 0, your_points: 0, controlledBy: "No Team"},
-    {id: 67, mapId:"mapID67", name:"Frostwood", img: regions[67], points_red: 0, points_blue: 0, points_yellow: 0, points_green: 0, your_points: 0, controlledBy: "No Team"},
+    {id: 67, mapId:"mapID67", name:"Frostwood", img: regions[67], points_red: 0, points_blue: 0, points_yellow: 0, points_green: 0, your_points: 0, controlledBy: "Blue"},
     {id: 68, mapId:"mapID68", name:"Frostwatch", img: regions[68], points_red: 0, points_blue: 0, points_yellow: 0, points_green: 0, your_points: 0, controlledBy: "No Team"},
 ]

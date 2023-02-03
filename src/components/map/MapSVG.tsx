@@ -19,29 +19,30 @@ function MapSVG({setRegionId}: RegionIdProps) {
   
 
 
-  
-
-
-    
-
   // Clicking on a region in the .svg map
   const handleClick = (id:string) => {
     
     console.log(canClickOnRegion(id, regionsList, userData))
 
-    // Return previous clicked region to transparent color
-    if (prevRegionId !== "") {
-      (document.getElementById(prevRegionId) as HTMLFormElement).style.fill = prevRegionColor(prevRegionId, regionsList);
-      (document.getElementById(prevRegionId) as HTMLFormElement).style.opacity = "1";
-    }
+    // User can only interact with regions either (1) controlled by user's team or (2) adjacent to the team's controlled regions
+    if (canClickOnRegion(id, regionsList, userData)) {
 
-    (document.getElementById(id) as HTMLFormElement).style.fill = selectedRegionColor(userData); 
-    (document.getElementById(id) as HTMLFormElement).style.opacity = "0.5";
-    
-    setRegionId(id);
-    setPrevRegionId(id)
-    
-    console.log(id)
+      // Return previous clicked region to transparent color
+      if (prevRegionId !== "") {
+        (document.getElementById(prevRegionId) as HTMLFormElement).style.fill = prevRegionColor(prevRegionId, regionsList);
+        (document.getElementById(prevRegionId) as HTMLFormElement).style.opacity = "1";
+      }
+
+      (document.getElementById(id) as HTMLFormElement).style.fill = selectedRegionColor(userData); 
+      (document.getElementById(id) as HTMLFormElement).style.opacity = "0.5";
+
+      setRegionId(id);
+      setPrevRegionId(id)
+
+      
+    }
+  //  console.log(id)
+
   }
 
 
