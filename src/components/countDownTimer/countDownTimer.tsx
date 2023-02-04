@@ -1,13 +1,18 @@
 import * as React from 'react';
 
-export default function CountDownTimer () {
+export default function CountDownTimer (setVictoryPoints:any) {
+  
   const [countDown, setCountDown] = React.useState<number>(60);
+
 
   React.useEffect(() => {
     const interval = setInterval(function() {
       setCountDown((prevCountDown) => {
         const newCountDown = prevCountDown - 1;
         if (newCountDown < 1) {
+          
+          setVictoryPoints(true)
+          console.log("TIMER 0")
           return 60;
         }
         return newCountDown;
@@ -21,3 +26,4 @@ export default function CountDownTimer () {
 
   return <p>{countDown}</p>;
 }
+

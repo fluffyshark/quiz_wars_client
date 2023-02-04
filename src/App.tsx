@@ -15,10 +15,12 @@ import PlayerLobbyView from './pages/playerLobbyView/PlayerLobbyView';
 import { useDispatch } from "react-redux";
 
 
+
 interface ServerToClientEvents {
   testing_from_server: (text:string) => void;
-  send_gamedata_to_users: (gameData:any) => void;
+  send_gamedata_to_users: (gameData:any, gameCode:number) => void;
   sending_user_gamecodes_request:  (allGameCodes:any) => void;
+  
 
   // Template of types
   noArg: () => void;
@@ -34,24 +36,19 @@ interface ClientToServerEvents {
 
 function App() {
 
-  const [team_red, setTeam_red] = useState<string[]>([])
-  const [team_blue, setTeam_blue] = useState<string[]>([])
-  const [team_yellow, setTeam_yellow] = useState<string[]>([])
-  const [team_green, setTeam_green] = useState<string[]>([])
-
   const dispatch = useDispatch()
-
   const socket: Socket<ServerToClientEvents, ClientToServerEvents> = io("http://localhost:3001");
-  
+ 
 
   useEffect(() => {
     
     // Receive message from server as response after sending "testing_from_client"
-    socket.on("send_gamedata_to_users", (gameData) => {
+    socket.on("send_gamedata_to_users", (gameData, gameCode) => {
       // Send updated version gameData of RegionReducer 
       dispatch(updateRegionData(gameData))
       console.log("Client GameData ", gameData)
     })
+
 
   }, [socket])
 

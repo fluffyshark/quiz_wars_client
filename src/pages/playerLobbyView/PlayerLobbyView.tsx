@@ -4,6 +4,7 @@ import icon_ok from "../../images/generall/icon_ok.png"
 import icon_nope from "../../images/generall/icon_nope.png"
 import { useNavigate } from 'react-router-dom';
 
+
 interface SocketProps {
     socket: SocketIOClient.Socket;
   }
@@ -12,13 +13,14 @@ export default function PlayerLobbyView ({socket}:SocketProps) {
 
     let navigate = useNavigate();
 
-
     React.useEffect(() => {
         // When host start game, then user are navigated to MathView
-        socket.on("host_has_started_game", () => {
+        socket.on("host_has_started_game", (gameCode) => {
+            console.log("CLIENT LOBBY HAS REVEICED ORDER TO START GAME")
             navigate('/mathview')
             console.log("GAME STARTED")
           })
+
     }, [socket])
 
     

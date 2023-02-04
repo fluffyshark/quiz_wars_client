@@ -5,11 +5,8 @@ import Map from "../../components/map/Map"
 
 import { handleRegionOwnership } from '../regionSelectView/components/handleRegionOwnership';
 
-export interface IAppProps {
-}
 
-
-export default function Overview (props: IAppProps) {
+export default function Overview () {
 
   const [regionId, setRegionId] = React.useState<string>("")
 
