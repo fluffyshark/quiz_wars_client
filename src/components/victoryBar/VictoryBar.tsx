@@ -16,11 +16,9 @@ export default function VictoryBar () {
 
   React.useEffect(() => {
     if (displayVictoryPoints === true) {
-      console.log("inside if statement")
       setVictoryPoints(calcVictoryPoints(regionsList, victoryPoints))
       setDisplayVictoryPoints(false)
     }
-    console.log("Outside if statement")
   }, [displayVictoryPoints])
 
 

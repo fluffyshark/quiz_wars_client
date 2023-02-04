@@ -12,7 +12,7 @@ export default function CountDownTimer (setVictoryPoints:any) {
         if (newCountDown < 1) {
           
           setVictoryPoints(true)
-          console.log("TIMER 0")
+
           return 60;
         }
         return newCountDown;

@@ -47,8 +47,15 @@ export default function JoinView ({socket}:SocketProps) {
 
     const handleSubmit = (event: React.FormEvent<HTMLFormElement>) => {
       event.preventDefault();
+
+      // Declare user's starting region depending on the chosen team
+      let teamStartingRegion = 0
+        if (selectTeam === "Red") {teamStartingRegion = 38}
+        if (selectTeam === "Blue") {teamStartingRegion = 67}
+        if (selectTeam === "Yellow") {teamStartingRegion = 53}
+        if (selectTeam === "Green") {teamStartingRegion = 0}
       // Send user data to client global store
-      dispatch(add_user_info({username: formData.usernameInput, gameCode: formData.gameCodeInput, team: selectTeam}))
+      dispatch(add_user_info({username: formData.usernameInput, gameCode: formData.gameCodeInput, selectedRegionId: teamStartingRegion, team: selectTeam}))
       // User send user data to server to join room and be added to game data
       socket.emit("player_joining", {username: formData.usernameInput, gameCode: formData.gameCodeInput, team: selectTeam});
       // After giving socket and redux time to execute, user are sent to player lobby

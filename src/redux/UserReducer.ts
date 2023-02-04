@@ -5,7 +5,7 @@ interface UserData {
     username:string
     gameCode:string
     points?:UserPoints
-    selectedRegionId?:SelectedRegion
+    selectedRegionId:number
     team:string
 }
 interface UserPoints {
@@ -16,6 +16,7 @@ interface SelectedRegion {
 }
 interface ChangeTeam {
     team:string
+    selectedRegionId:number
 }
 
 export var userData = {userId: "", username: "", gameCode: "",  points: 0, selectedRegionId: 0, team:""} 
@@ -28,6 +29,7 @@ const UserSlice = createSlice({
             state.value.username = action.payload.username
             state.value.gameCode = action.payload.gameCode
             state.value.team = action.payload.team
+            state.value.selectedRegionId = action.payload.selectedRegionId
             console.log("action.payload team", action.payload)
         },
         add_points: (state, action:PayloadAction<UserPoints>) => {
@@ -38,6 +40,7 @@ const UserSlice = createSlice({
         },
         change_team: (state, action:PayloadAction<ChangeTeam>) => {
             state.value.team = action.payload.team
+            state.value.selectedRegionId = action.payload.selectedRegionId
         },
 
        

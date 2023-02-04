@@ -22,10 +22,17 @@ export default function PlayerLobbyView ({socket}:SocketProps) {
     
     
     function changeTeam(team:string) {
+        
+        // Declare user's starting region depending on the chosen team
+        let teamStartingRegion = 0
+        if (team === "Red") {teamStartingRegion = 38}
+        if (team === "Blue") {teamStartingRegion = 67}
+        if (team === "Yellow") {teamStartingRegion = 53}
+        if (team === "Green") {teamStartingRegion = 0}
+        
         setSelectTeam(team)
         socket.emit("user_changing_team", {username: userData.username, gameCode: userData.gameCode, team:team, previousTeam: userData.team});
-        dispatch(change_team({team: team}))
-        
+        dispatch(change_team({team: team, selectedRegionId:teamStartingRegion})) 
     }
 
 

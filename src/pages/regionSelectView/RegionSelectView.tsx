@@ -20,6 +20,8 @@ export default function RegionSelectView (props: IAppProps) {
 
   // Accessing RegionData from redux
   const regionsList = useSelector((state:any) => state.regions.value)
+  const userData = useSelector((state:any) => state.user.value)
+
   const dispatch = useDispatch()
 
   // Valiables used to adjust map to viewport
@@ -29,10 +31,15 @@ export default function RegionSelectView (props: IAppProps) {
   const statsWidth = innerWidth - mapWidth;
 
 
-
   useEffect(() => { addRegionData() }, [regionId])
 
+  // When user enters view, sets user's selected region to previous selected region, saved in RegionReducer(redux) 
+  useEffect(() => {
+    setSelectedRegion(regionsList[userData.selectedRegionId])
+    setRegionId(regionsList[userData.selectedRegionId].mapId)
+  }, [])
  
+
 
   function addRegionData() {
     
@@ -48,10 +55,12 @@ export default function RegionSelectView (props: IAppProps) {
   } // End of addRegionData()
 
 
+
   useEffect(() => {
     (document.getElementById("mapComponent") as HTMLFormElement).style.height = "100vh";
     (document.getElementById("statsSection") as HTMLFormElement).style.width = `${statsWidth}px`;
   }, [])
+
 
 
   useEffect(() => {
@@ -59,7 +68,7 @@ export default function RegionSelectView (props: IAppProps) {
 
     // Change color of regions to represent team ownership | Need to delay function for image to load  
     setTimeout(() => { handleRegionOwnership(regionsList) }, 1000)
-    
+
   }, [regionsList])
   
 
