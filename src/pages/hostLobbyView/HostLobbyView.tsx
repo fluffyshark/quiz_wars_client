@@ -1,6 +1,6 @@
 import * as React from 'react';
 import * as SocketIOClient from 'socket.io-client';
-import { useDispatch, useSelector } from 'react-redux';
+import { useDispatch } from 'react-redux';
 import { Link, useNavigate } from 'react-router-dom';
 import { add_user_info } from "../../redux/UserReducer"
 
@@ -19,8 +19,6 @@ export default function HostLobbyView ({socket}:SocketProps) {
 
   const dispatch = useDispatch()
   let navigate = useNavigate();
-  const userData = useSelector((state:any) => state.user.value)
-
 
   function hostGame() {
 
@@ -52,8 +50,27 @@ export default function HostLobbyView ({socket}:SocketProps) {
 
 
     React.useEffect(() => {
+
+      // Adding user to their chosen team
       socket.on("player_accepted", (userData) => {
-        console.log("userData from server to host", userData) 
+        switch (userData.team) {
+          case "Red": setTeam_red(team_red => [...team_red, userData.username]); break;
+          case "Blue": setTeam_blue(team_blue =>[...team_blue, userData.username]); break;
+          case "Yellow": setTeam_yellow(team_yellow =>[...team_yellow, userData.username]); break;
+          case "Green": setTeam_green(team_green =>[...team_green, userData.username]); break;
+          default:
+            break;
+        } 
+      }) 
+
+      // When user change team, two things happens: (1) user are filtered away bases on its username and (2) their username are added again in the new team
+      socket.on("from_server_user_changed_team", (userData) => {
+ 
+        setTeam_red(team_red => team_red.filter(user => user !== userData.username))
+        setTeam_blue(team_blue => team_blue.filter(user => user !== userData.username))
+        setTeam_yellow(team_yellow => team_yellow.filter(user => user !== userData.username))
+        setTeam_green(team_green => team_green.filter(user => user !== userData.username))
+
         switch (userData.team) {
           case "Red": setTeam_red(team_red => [...team_red, userData.username]); break;
           case "Blue": setTeam_blue(team_blue =>[...team_blue, userData.username]); break;
@@ -62,8 +79,11 @@ export default function HostLobbyView ({socket}:SocketProps) {
           default:
             break;
         }
-      }) 
+      });
+      
     }, [socket]);
+
+
 
 
     React.useEffect(() => {
