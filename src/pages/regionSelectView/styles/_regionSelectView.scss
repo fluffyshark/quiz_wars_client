@@ -98,13 +98,26 @@
             display: flex; flex-direction: column; align-items: center;
 
             p {color: white; font-weight: bold; margin: 0;}
-            p:nth-child(1) {font-size: 10px;}
-            p:nth-child(2) {font-size: 25px; margin-bottom: 20px;}
-            p:nth-child(3) {font-size: 15px; margin-top: 10px;}
-            p:nth-child(4) {font-size: 30px;}
-            p:nth-child(5) {font-size: 15px; margin-top: 10px;}
-            p:nth-child(6) {font-size: 30px;}
+            p:nth-child(1) {font-size: 10px;} // Controlled by
+            p:nth-child(2) {font-size: 25px; margin-bottom: 20px;} // Team // Also Second team points (blue)
+            p:nth-child(3) {font-size: 15px; margin-top: 10px;} // Points in region
+            p:nth-child(5) {font-size: 15px; margin-top: 10px;} // Your points in region (title)
+            p:nth-child(6) {font-size: 30px;} // Your Points in region (value number)
         }
+
+        &_regionPointsContainer {
+            width: 100%;
+            height: 50px;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            p {margin: 10px;}
+            p:nth-child(1) {font-size: 30px; color: #eb497b;} // First team points (red)
+            p:nth-child(2) {font-size: 30px; margin-bottom: 10px; color: #23a6ff;} // Second team points (blue)
+            p:nth-child(3) {font-size: 30px; color: #febe57;} // Third team points (yellow)
+            p:nth-child(4) {font-size: 30px; color: #4bdf37;} // First team points (green)
+        }
+
     }
 
     

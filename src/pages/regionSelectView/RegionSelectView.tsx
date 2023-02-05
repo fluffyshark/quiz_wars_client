@@ -7,6 +7,7 @@ import icon_toMath from "../../images/generall/icon_toMath.png"
 import { Link } from 'react-router-dom';
 
 import { handleRegionOwnership } from './components/handleRegionOwnership';
+import UserVictoryPoints from './components/UserVictoryPoints';
 
 export interface IAppProps {
 }
@@ -72,8 +73,17 @@ export default function RegionSelectView (props: IAppProps) {
   }, [regionsList])
   
 
+  // Take in the id of user's selected region that is placed local state. Display the teams points based on that region's points stored in global state (RegionReducer) 
+  function displayRegionPoints(selectedRegionID: number) {
+    let tag = <>
+                <p>{regionsList[selectedRegionID].points_red}</p>
+                <p>{regionsList[selectedRegionID].points_blue}</p>
+                <p>{regionsList[selectedRegionID].points_yellow}</p>
+                <p>{regionsList[selectedRegionID].points_green}</p>
+              </>
 
-
+    return tag
+  }
 
 
 
@@ -85,17 +95,11 @@ export default function RegionSelectView (props: IAppProps) {
           <Link to="/mathview"><img src={icon_toMath} alt="" /></Link>
           <p>Quiz Wars</p>
         </div>
-        
+         
         <div className="regionSelectView_stats_pointSection">
-          <div className="regionSelectView_stats_pointSection_title"><p>Victory Points</p></div>
-          <div className="regionSelectView_stats_pointSection_pointsContainer">
-            <div id="regionSelectView_redTeam" className='pointBox'><p>10</p><p>Red Team</p></div>
-            <div id="regionSelectView_blueTeam" className='pointBox'><p>10</p><p>Blue Team</p></div>
-            <div id="regionSelectView_yellowTeam" className='pointBox'><p>10</p><p>Yellow Team</p></div>
-            <div id="regionSelectView_greenTeam" className='pointBox'><p>10</p><p>Green Team</p></div>
-          </div>
-        </div>
-
+           <UserVictoryPoints />
+        </div>  
+      
         <div className="regionSelectView_stats_regionInfo">
           <div className="regionSelectView_stats_regionInfo_title">
             <p>Your points enters region</p>
@@ -108,7 +112,9 @@ export default function RegionSelectView (props: IAppProps) {
             <p>{selectedRegion.controlledBy}</p>
             
             <p>POINTS IN REGION</p>
-            <p>23</p>
+            <div className="regionSelectView_stats_regionInfo_regionPointsContainer">
+              {displayRegionPoints(selectedRegion.id)}
+            </div>
             <p>YOUR POINTS IN REGION</p>
             <p>{selectedRegion.your_points}</p>
             <div className='regionPoints_line'></div>
