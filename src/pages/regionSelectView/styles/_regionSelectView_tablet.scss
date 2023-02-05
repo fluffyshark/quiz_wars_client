@@ -1,12 +1,24 @@
-@media only screen and (orientation : landscape) {
- 
+@media only screen and (orientation : portrait) {
+   
     
+
     .regionSelectView {
         width: 100%;
         height: 100vh;
-        background-color: #2a99ee;
+        background-color: #3550c4;
         display: flex;
+        flex-direction: column;
         overflow: hidden;
+
+        #mapComponent {
+            position: inherit;
+            width: 100%;
+            height: 1023px;
+
+        }
+        .mapSVG_container {
+            position: inherit;
+        }
     }
     
     .regionSelectView_stats {
@@ -20,7 +32,8 @@
             width: 100%;
             height: 125px;
             background-color: #2b97ed;
-            display: flex; align-items: center; justify-content: center;
+            display: none; 
+
     
             p{color: white; font-size: 60px; font-weight: bold; margin: 0;}
     
@@ -28,6 +41,7 @@
                 width: 45px; height: 45px; margin: 10px;
                 position: absolute; top: 0; left: 0;
                 cursor: pointer;
+                display: none;
             }
         }
     
@@ -54,7 +68,7 @@
                 height: calc(100% - 40px);
                 background-color: green;
                 display: flex;
-    
+                
             }
         }
     
@@ -73,8 +87,11 @@
             width: 100%;
             height: calc(100% - 235px - 40px);
             background-color: #3550c4ff;
-    
-            
+            display: flex;
+
+            #title_region_container {
+                width: 50%;
+            }
 
             &_title {
                 width: 100%;
@@ -84,13 +101,6 @@
                 p {color: white; font-weight: bold; margin: 0;}
                 p:nth-child(1) {font-size: 15px;}
                 p:nth-child(2) {font-size: 30px; margin-bottom: 10px;}
-
-                #regionSelectView_linkButton_portrait {
-                    width: 45px; height: 45px; margin: 10px;
-                    position: absolute; top: 0; left: 0;
-                    cursor: pointer;
-                    display: none;
-                }
             }
     
             &_regionImage {
@@ -105,9 +115,10 @@
             }
     
             &_regionPoints {
-                width: 100%;
+                width: 50%;
                 height: 100%;
-                display: flex; flex-direction: column; align-items: center;
+                display: flex; flex-direction: column; align-items: center; justify-content: center;
+                position: relative;
     
                 p {color: white; font-weight: bold; margin: 0;}
            
@@ -190,9 +201,13 @@
         border-radius:"5px";
         transform: translateY(-75px);
     }
+
+    #regionSelectView_linkButton_portrait {
+        width: 45px; height: 45px; margin: 10px;
+        position: absolute; top: 10px; left: calc(100% - 45px - 30px);
+        cursor: pointer;
+    }
     
-    
-    
+
 
 } // @media only screen and (orientation : portrait)
-

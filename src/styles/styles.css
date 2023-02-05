@@ -119,220 +119,240 @@
   border-left: 5px solid white;
 }
 
-.regionSelectView {
-  width: 100%;
-  height: 100vh;
-  background-color: #2a99ee;
-  display: flex;
-  overflow: hidden;
+@media only screen and (orientation: landscape) {
+  .regionSelectView {
+    width: 100%;
+    height: 100vh;
+    background-color: #2a99ee;
+    display: flex;
+    overflow: hidden;
+  }
+  .regionSelectView_stats {
+    height: 100%;
+    width: 100%;
+    box-shadow: -12px 0 15px -5px rgba(0, 0, 0, 0.5), -12px 0 8px -5px rgba(0, 0, 0, 0.5);
+    z-index: 100;
+    position: relative;
+  }
+  .regionSelectView_stats_titleSection {
+    width: 100%;
+    height: 125px;
+    background-color: #2b97ed;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+  .regionSelectView_stats_titleSection p {
+    color: white;
+    font-size: 60px;
+    font-weight: bold;
+    margin: 0;
+  }
+  .regionSelectView_stats_titleSection img {
+    width: 45px;
+    height: 45px;
+    margin: 10px;
+    position: absolute;
+    top: 0;
+    left: 0;
+    cursor: pointer;
+  }
+  .regionSelectView_stats_pointSection {
+    width: 100%;
+    height: 150px;
+  }
+  .regionSelectView_stats_pointSection_title {
+    width: 100%;
+    height: 40px;
+    background: rgb(127, 68, 255);
+    background: linear-gradient(0deg, rgb(127, 68, 255) 0%, rgb(177, 109, 252) 100%);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    box-shadow: inset 0px 0px 0px 5px #fff;
+  }
+  .regionSelectView_stats_pointSection_title p {
+    color: white;
+    font-size: 22px;
+    font-weight: bold;
+    margin: 0;
+  }
+  .regionSelectView_stats_pointSection_pointsContainer {
+    width: 100%;
+    height: calc(100% - 40px);
+    background-color: green;
+    display: flex;
+  }
+  .regionSelectView_stats .pointBox {
+    width: 25%;
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+  }
+  .regionSelectView_stats .pointBox p {
+    color: white;
+    font-weight: bold;
+    margin: 0;
+  }
+  .regionSelectView_stats .pointBox p:nth-child(1) {
+    font-size: 30px;
+  }
+  .regionSelectView_stats .pointBox p:nth-child(2) {
+    font-size: 15px;
+  }
+  .regionSelectView_stats_regionInfo {
+    width: 100%;
+    height: calc(100% - 235px - 40px);
+    background-color: #3550c4;
+  }
+  .regionSelectView_stats_regionInfo_title {
+    width: 100%;
+    height: 100px;
+    display: flex;
+    justify-content: flex-end;
+    align-items: center;
+    flex-direction: column;
+  }
+  .regionSelectView_stats_regionInfo_title p {
+    color: white;
+    font-weight: bold;
+    margin: 0;
+  }
+  .regionSelectView_stats_regionInfo_title p:nth-child(1) {
+    font-size: 15px;
+  }
+  .regionSelectView_stats_regionInfo_title p:nth-child(2) {
+    font-size: 30px;
+    margin-bottom: 10px;
+  }
+  .regionSelectView_stats_regionInfo_title #regionSelectView_linkButton_portrait {
+    width: 45px;
+    height: 45px;
+    margin: 10px;
+    position: absolute;
+    top: 0;
+    left: 0;
+    cursor: pointer;
+    display: none;
+  }
+  .regionSelectView_stats_regionInfo_regionImage {
+    width: 100%;
+    height: calc(100% - 400px);
+    min-height: 200px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+  .regionSelectView_stats_regionInfo_regionImage img {
+    height: 95%;
+  }
+  .regionSelectView_stats_regionInfo_regionPoints {
+    width: 100%;
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+  }
+  .regionSelectView_stats_regionInfo_regionPoints p {
+    color: white;
+    font-weight: bold;
+    margin: 0;
+  }
+  .regionSelectView_stats_regionInfo_regionPoints_controlledby {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin-bottom: 30px;
+  }
+  .regionSelectView_stats_regionInfo_regionPoints_controlledby p:nth-child(1) {
+    font-size: 10px;
+  }
+  .regionSelectView_stats_regionInfo_regionPoints_controlledby p:nth-child(2) {
+    font-size: 30px;
+  }
+  .regionSelectView_stats_regionInfo_regionPoints_yourPoints {
+    width: 100%;
+    height: 45px;
+    margin-top: 30px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+  }
+  .regionSelectView_stats_regionInfo_regionPoints_yourPoints p:nth-child(1) {
+    font-size: 15px;
+  }
+  .regionSelectView_stats_regionInfo_regionPoints_yourPoints p:nth-child(2) {
+    font-size: 30px;
+  }
+  .regionSelectView_stats_regionInfo_regionPointsContainer {
+    width: 100%;
+    height: 50px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+  }
+  .regionSelectView_stats_regionInfo_regionPointsContainer #regionSelectView_regionPoints {
+    width: 160px;
+    height: 40px;
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+  }
+  .regionSelectView_stats_regionInfo_regionPointsContainer #regionSelectView_regionPoints #regionSelectView_team_point_title {
+    font-size: 15px;
+  }
+  .regionSelectView_stats_regionInfo_regionPointsContainer #regionSelectView_regionPoints #regionSelectView_team_point_red {
+    font-size: 30px;
+    color: #eb497b;
+  }
+  .regionSelectView_stats_regionInfo_regionPointsContainer #regionSelectView_regionPoints #regionSelectView_team_point_blue {
+    font-size: 30px;
+    color: #23a6ff;
+  }
+  .regionSelectView_stats_regionInfo_regionPointsContainer #regionSelectView_regionPoints #regionSelectView_team_point_yellow {
+    font-size: 30px;
+    color: #febe57;
+  }
+  .regionSelectView_stats_regionInfo_regionPointsContainer #regionSelectView_regionPoints #regionSelectView_team_point_green {
+    font-size: 30px;
+    color: #4bdf37;
+  }
+  #regionSelectView_redTeam {
+    background: rgb(224, 51, 116);
+    background: linear-gradient(0deg, rgb(224, 51, 116) 0%, rgb(244, 95, 130) 100%);
+    border-bottom: 5px solid white;
+    border-left: 5px solid white;
+  }
+  #regionSelectView_blueTeam {
+    background: rgb(44, 141, 254);
+    background: linear-gradient(0deg, rgb(44, 141, 254) 0%, rgb(28, 188, 255) 100%);
+    border-bottom: 5px solid white;
+    border-left: 5px solid white;
+  }
+  #regionSelectView_yellowTeam {
+    background: rgb(255, 153, 70);
+    background: linear-gradient(0deg, rgb(255, 153, 70) 0%, rgb(254, 189, 86) 100%);
+    border-bottom: 5px solid white;
+    border-left: 5px solid white;
+  }
+  #regionSelectView_greenTeam {
+    background: rgb(48, 211, 69);
+    background: linear-gradient(0deg, rgb(48, 211, 69) 0%, rgb(103, 235, 42) 100%);
+    border-bottom: 5px solid white;
+    border-left: 5px solid white;
+    border-right: 5px solid white;
+  }
+  .regionPoints_line {
+    width: "300px";
+    height: "2px";
+    background-color: "white";
+    border-radius: "5px";
+    transform: translateY(-75px);
+  }
 }
-
-.regionSelectView_stats {
-  height: 100%;
-  width: 100%;
-  box-shadow: -12px 0 15px -5px rgba(0, 0, 0, 0.5), -12px 0 8px -5px rgba(0, 0, 0, 0.5);
-  z-index: 100;
-  position: relative;
-}
-.regionSelectView_stats_titleSection {
-  width: 100%;
-  height: 125px;
-  background-color: #2b97ed;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-}
-.regionSelectView_stats_titleSection p {
-  color: white;
-  font-size: 60px;
-  font-weight: bold;
-  margin: 0;
-}
-.regionSelectView_stats_titleSection img {
-  width: 45px;
-  height: 45px;
-  margin: 10px;
-  position: absolute;
-  top: 0;
-  left: 0;
-  cursor: pointer;
-}
-.regionSelectView_stats_pointSection {
-  width: 100%;
-  height: 150px;
-}
-.regionSelectView_stats_pointSection_title {
-  width: 100%;
-  height: 40px;
-  background: rgb(127, 68, 255);
-  background: linear-gradient(0deg, rgb(127, 68, 255) 0%, rgb(177, 109, 252) 100%);
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  box-shadow: inset 0px 0px 0px 5px #fff;
-}
-.regionSelectView_stats_pointSection_title p {
-  color: white;
-  font-size: 22px;
-  font-weight: bold;
-  margin: 0;
-}
-.regionSelectView_stats_pointSection_pointsContainer {
-  width: 100%;
-  height: calc(100% - 40px);
-  background-color: green;
-  display: flex;
-}
-.regionSelectView_stats .pointBox {
-  width: 25%;
-  height: 100%;
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  align-items: center;
-}
-.regionSelectView_stats .pointBox p {
-  color: white;
-  font-weight: bold;
-  margin: 0;
-}
-.regionSelectView_stats .pointBox p:nth-child(1) {
-  font-size: 30px;
-}
-.regionSelectView_stats .pointBox p:nth-child(2) {
-  font-size: 15px;
-}
-.regionSelectView_stats_regionInfo {
-  width: 100%;
-  height: calc(100% - 235px - 40px);
-  background-color: #3550c4;
-}
-.regionSelectView_stats_regionInfo_title {
-  width: 100%;
-  height: 100px;
-  display: flex;
-  justify-content: flex-end;
-  align-items: center;
-  flex-direction: column;
-}
-.regionSelectView_stats_regionInfo_title p {
-  color: white;
-  font-weight: bold;
-  margin: 0;
-}
-.regionSelectView_stats_regionInfo_title p:nth-child(1) {
-  font-size: 15px;
-}
-.regionSelectView_stats_regionInfo_title p:nth-child(2) {
-  font-size: 30px;
-  margin-bottom: 10px;
-}
-.regionSelectView_stats_regionInfo_regionImage {
-  width: 100%;
-  height: calc(100% - 350px);
-  min-height: 200px;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-}
-.regionSelectView_stats_regionInfo_regionImage img {
-  height: 90%;
-}
-.regionSelectView_stats_regionInfo_regionPoints {
-  width: 100%;
-  height: 145px;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-}
-.regionSelectView_stats_regionInfo_regionPoints p {
-  color: white;
-  font-weight: bold;
-  margin: 0;
-}
-.regionSelectView_stats_regionInfo_regionPoints p:nth-child(1) {
-  font-size: 10px;
-}
-.regionSelectView_stats_regionInfo_regionPoints p:nth-child(2) {
-  font-size: 25px;
-  margin-bottom: 20px;
-}
-.regionSelectView_stats_regionInfo_regionPoints p:nth-child(3) {
-  font-size: 15px;
-  margin-top: 10px;
-}
-.regionSelectView_stats_regionInfo_regionPoints p:nth-child(5) {
-  font-size: 15px;
-  margin-top: 10px;
-}
-.regionSelectView_stats_regionInfo_regionPoints p:nth-child(6) {
-  font-size: 30px;
-}
-.regionSelectView_stats_regionInfo_regionPointsContainer {
-  width: 100%;
-  height: 50px;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-}
-.regionSelectView_stats_regionInfo_regionPointsContainer p {
-  margin: 10px;
-}
-.regionSelectView_stats_regionInfo_regionPointsContainer p:nth-child(1) {
-  font-size: 30px;
-  color: #eb497b;
-}
-.regionSelectView_stats_regionInfo_regionPointsContainer p:nth-child(2) {
-  font-size: 30px;
-  margin-bottom: 10px;
-  color: #23a6ff;
-}
-.regionSelectView_stats_regionInfo_regionPointsContainer p:nth-child(3) {
-  font-size: 30px;
-  color: #febe57;
-}
-.regionSelectView_stats_regionInfo_regionPointsContainer p:nth-child(4) {
-  font-size: 30px;
-  color: #4bdf37;
-}
-
-#regionSelectView_redTeam {
-  background: rgb(224, 51, 116);
-  background: linear-gradient(0deg, rgb(224, 51, 116) 0%, rgb(244, 95, 130) 100%);
-  border-bottom: 5px solid white;
-  border-left: 5px solid white;
-}
-
-#regionSelectView_blueTeam {
-  background: rgb(44, 141, 254);
-  background: linear-gradient(0deg, rgb(44, 141, 254) 0%, rgb(28, 188, 255) 100%);
-  border-bottom: 5px solid white;
-  border-left: 5px solid white;
-}
-
-#regionSelectView_yellowTeam {
-  background: rgb(255, 153, 70);
-  background: linear-gradient(0deg, rgb(255, 153, 70) 0%, rgb(254, 189, 86) 100%);
-  border-bottom: 5px solid white;
-  border-left: 5px solid white;
-}
-
-#regionSelectView_greenTeam {
-  background: rgb(48, 211, 69);
-  background: linear-gradient(0deg, rgb(48, 211, 69) 0%, rgb(103, 235, 42) 100%);
-  border-bottom: 5px solid white;
-  border-left: 5px solid white;
-  border-right: 5px solid white;
-}
-
-.regionPoints_line {
-  width: "300px";
-  height: "2px";
-  background-color: "white";
-  border-radius: "5px";
-  transform: translateY(-75px);
-}
-
 .quizView {
   width: 100%;
   height: 100vh;
@@ -1000,4 +1020,252 @@
 }
 .playerLobbyView_container #playerLobbyView_selectedTeam {
   font-size: 70px;
+}
+
+@media only screen and (orientation: portrait) {
+  .regionSelectView {
+    width: 100%;
+    height: 100vh;
+    background-color: #3550c4;
+    display: flex;
+    flex-direction: column;
+    overflow: hidden;
+  }
+  .regionSelectView #mapComponent {
+    position: inherit;
+    width: 100%;
+    height: 1023px;
+  }
+  .regionSelectView .mapSVG_container {
+    position: inherit;
+  }
+  .regionSelectView_stats {
+    height: 100%;
+    width: 100%;
+    box-shadow: -12px 0 15px -5px rgba(0, 0, 0, 0.5), -12px 0 8px -5px rgba(0, 0, 0, 0.5);
+    z-index: 100;
+    position: relative;
+  }
+  .regionSelectView_stats_titleSection {
+    width: 100%;
+    height: 125px;
+    background-color: #2b97ed;
+    display: none;
+  }
+  .regionSelectView_stats_titleSection p {
+    color: white;
+    font-size: 60px;
+    font-weight: bold;
+    margin: 0;
+  }
+  .regionSelectView_stats_titleSection img {
+    width: 45px;
+    height: 45px;
+    margin: 10px;
+    position: absolute;
+    top: 0;
+    left: 0;
+    cursor: pointer;
+    display: none;
+  }
+  .regionSelectView_stats_pointSection {
+    width: 100%;
+    height: 150px;
+  }
+  .regionSelectView_stats_pointSection_title {
+    width: 100%;
+    height: 40px;
+    background: rgb(127, 68, 255);
+    background: linear-gradient(0deg, rgb(127, 68, 255) 0%, rgb(177, 109, 252) 100%);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    box-shadow: inset 0px 0px 0px 5px #fff;
+  }
+  .regionSelectView_stats_pointSection_title p {
+    color: white;
+    font-size: 22px;
+    font-weight: bold;
+    margin: 0;
+  }
+  .regionSelectView_stats_pointSection_pointsContainer {
+    width: 100%;
+    height: calc(100% - 40px);
+    background-color: green;
+    display: flex;
+  }
+  .regionSelectView_stats .pointBox {
+    width: 25%;
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+  }
+  .regionSelectView_stats .pointBox p {
+    color: white;
+    font-weight: bold;
+    margin: 0;
+  }
+  .regionSelectView_stats .pointBox p:nth-child(1) {
+    font-size: 30px;
+  }
+  .regionSelectView_stats .pointBox p:nth-child(2) {
+    font-size: 15px;
+  }
+  .regionSelectView_stats_regionInfo {
+    width: 100%;
+    height: calc(100% - 235px - 40px);
+    background-color: #3550c4;
+    display: flex;
+  }
+  .regionSelectView_stats_regionInfo #title_region_container {
+    width: 50%;
+  }
+  .regionSelectView_stats_regionInfo_title {
+    width: 100%;
+    height: 100px;
+    display: flex;
+    justify-content: flex-end;
+    align-items: center;
+    flex-direction: column;
+  }
+  .regionSelectView_stats_regionInfo_title p {
+    color: white;
+    font-weight: bold;
+    margin: 0;
+  }
+  .regionSelectView_stats_regionInfo_title p:nth-child(1) {
+    font-size: 15px;
+  }
+  .regionSelectView_stats_regionInfo_title p:nth-child(2) {
+    font-size: 30px;
+    margin-bottom: 10px;
+  }
+  .regionSelectView_stats_regionInfo_regionImage {
+    width: 100%;
+    height: calc(100% - 400px);
+    min-height: 200px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+  .regionSelectView_stats_regionInfo_regionImage img {
+    height: 95%;
+  }
+  .regionSelectView_stats_regionInfo_regionPoints {
+    width: 50%;
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    position: relative;
+  }
+  .regionSelectView_stats_regionInfo_regionPoints p {
+    color: white;
+    font-weight: bold;
+    margin: 0;
+  }
+  .regionSelectView_stats_regionInfo_regionPoints_controlledby {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin-bottom: 30px;
+  }
+  .regionSelectView_stats_regionInfo_regionPoints_controlledby p:nth-child(1) {
+    font-size: 10px;
+  }
+  .regionSelectView_stats_regionInfo_regionPoints_controlledby p:nth-child(2) {
+    font-size: 30px;
+  }
+  .regionSelectView_stats_regionInfo_regionPoints_yourPoints {
+    width: 100%;
+    height: 45px;
+    margin-top: 30px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+  }
+  .regionSelectView_stats_regionInfo_regionPoints_yourPoints p:nth-child(1) {
+    font-size: 15px;
+  }
+  .regionSelectView_stats_regionInfo_regionPoints_yourPoints p:nth-child(2) {
+    font-size: 30px;
+  }
+  .regionSelectView_stats_regionInfo_regionPointsContainer {
+    width: 100%;
+    height: 50px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+  }
+  .regionSelectView_stats_regionInfo_regionPointsContainer #regionSelectView_regionPoints {
+    width: 160px;
+    height: 40px;
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+  }
+  .regionSelectView_stats_regionInfo_regionPointsContainer #regionSelectView_regionPoints #regionSelectView_team_point_title {
+    font-size: 15px;
+  }
+  .regionSelectView_stats_regionInfo_regionPointsContainer #regionSelectView_regionPoints #regionSelectView_team_point_red {
+    font-size: 30px;
+    color: #eb497b;
+  }
+  .regionSelectView_stats_regionInfo_regionPointsContainer #regionSelectView_regionPoints #regionSelectView_team_point_blue {
+    font-size: 30px;
+    color: #23a6ff;
+  }
+  .regionSelectView_stats_regionInfo_regionPointsContainer #regionSelectView_regionPoints #regionSelectView_team_point_yellow {
+    font-size: 30px;
+    color: #febe57;
+  }
+  .regionSelectView_stats_regionInfo_regionPointsContainer #regionSelectView_regionPoints #regionSelectView_team_point_green {
+    font-size: 30px;
+    color: #4bdf37;
+  }
+  #regionSelectView_redTeam {
+    background: rgb(224, 51, 116);
+    background: linear-gradient(0deg, rgb(224, 51, 116) 0%, rgb(244, 95, 130) 100%);
+    border-bottom: 5px solid white;
+    border-left: 5px solid white;
+  }
+  #regionSelectView_blueTeam {
+    background: rgb(44, 141, 254);
+    background: linear-gradient(0deg, rgb(44, 141, 254) 0%, rgb(28, 188, 255) 100%);
+    border-bottom: 5px solid white;
+    border-left: 5px solid white;
+  }
+  #regionSelectView_yellowTeam {
+    background: rgb(255, 153, 70);
+    background: linear-gradient(0deg, rgb(255, 153, 70) 0%, rgb(254, 189, 86) 100%);
+    border-bottom: 5px solid white;
+    border-left: 5px solid white;
+  }
+  #regionSelectView_greenTeam {
+    background: rgb(48, 211, 69);
+    background: linear-gradient(0deg, rgb(48, 211, 69) 0%, rgb(103, 235, 42) 100%);
+    border-bottom: 5px solid white;
+    border-left: 5px solid white;
+    border-right: 5px solid white;
+  }
+  .regionPoints_line {
+    width: "300px";
+    height: "2px";
+    background-color: "white";
+    border-radius: "5px";
+    transform: translateY(-75px);
+  }
+  #regionSelectView_linkButton_portrait {
+    width: 45px;
+    height: 45px;
+    margin: 10px;
+    position: absolute;
+    top: 10px;
+    left: calc(100% - 45px - 30px);
+    cursor: pointer;
+  }
 }/*# sourceMappingURL=styles.css.map */

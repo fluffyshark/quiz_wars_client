@@ -10,10 +10,10 @@ interface Region {
 export function displayRegionPoints(selectedRegionID: number, regionList: Region[]) {
   let tag = (
     <>
-      <p>{regionList[selectedRegionID].points_red}</p>
-      <p>{regionList[selectedRegionID].points_blue}</p>
-      <p>{regionList[selectedRegionID].points_yellow}</p>
-      <p>{regionList[selectedRegionID].points_green}</p>
+      <p id="regionSelectView_team_point_red">{regionList[selectedRegionID].points_red}</p>
+      <p id="regionSelectView_team_point_blue">{regionList[selectedRegionID].points_blue}</p>
+      <p id="regionSelectView_team_point_yellow">{regionList[selectedRegionID].points_yellow}</p>
+      <p id="regionSelectView_team_point_green">{regionList[selectedRegionID].points_green}</p>
     </>
   );
 

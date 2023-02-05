@@ -28,9 +28,16 @@ export default function RegionSelectView (props: IAppProps) {
 
   // Valiables used to adjust map to viewport
   const innerHeight = window.innerHeight - 1; 
-  const innerWidth = window.innerWidth;
-  const mapWidth = innerHeight * 1.33244343;
+  const innerWidth = window.innerWidth - 1;
+  let mapHeight =  innerHeight;
+  let mapWidth = innerHeight * 1.33244343;
   const statsWidth = innerWidth - mapWidth;
+
+  // If tablet, where height is greater than width
+  if (innerHeight > innerWidth) {
+    mapWidth = innerWidth
+    mapHeight = mapWidth * 0.75
+  }
 
 
   useEffect(() => { addRegionData() }, [regionId])
@@ -75,15 +82,12 @@ export default function RegionSelectView (props: IAppProps) {
   
 
 
-
-
-
   return (
     <div className='regionSelectView'>
-      <Map height={innerHeight} width={mapWidth} setRegionId={setRegionId}/>
+      <Map height={mapHeight} width={mapWidth} setRegionId={setRegionId}/>
       <div id="statsSection" className="regionSelectView_stats">
         <div className="regionSelectView_stats_titleSection">
-          <Link to="/mathview"><img src={icon_toMath} alt="" /></Link>
+          <Link id="regionSelectView_linkButton_landscape" to="/mathview"><img src={icon_toMath} alt="" /></Link>
           <p>Quiz Wars</p>
         </div>
          
@@ -92,23 +96,37 @@ export default function RegionSelectView (props: IAppProps) {
         </div>  
       
         <div className="regionSelectView_stats_regionInfo">
-          <div className="regionSelectView_stats_regionInfo_title">
-            <p>Your points enters region</p>
-            <p>{selectedRegion.name}</p>
+          
+          <div id="title_region_container">
+            <div className="regionSelectView_stats_regionInfo_title">
+              <p>Your points enters region</p>
+              <p>{selectedRegion.name}</p>
+            </div>
+            <div className="regionSelectView_stats_regionInfo_regionImage"><img src={selectedRegion.img} alt="" /></div>
           </div>
           
-          <div className="regionSelectView_stats_regionInfo_regionImage"><img src={selectedRegion.img} alt="" /></div>
           <div className="regionSelectView_stats_regionInfo_regionPoints">
-            <p>CONTROLLED BY</p>
-            <p>{selectedRegion.controlledBy}</p>
             
-            <p>POINTS IN REGION</p>
-            <div className="regionSelectView_stats_regionInfo_regionPointsContainer">
-              {displayRegionPoints(selectedRegion.id, regionsList)}
+            <Link to="/mathview"><img id="regionSelectView_linkButton_portrait" src={icon_toMath} alt="" /></Link>
+            
+            <div className="regionSelectView_stats_regionInfo_regionPoints_controlledby">
+              <p>CONTROLLED BY</p>
+              <p>{selectedRegion.controlledBy}</p>
             </div>
-            <p>YOUR POINTS IN REGION</p>
-            <p>{selectedRegion.your_points}</p>
+            
+            <div className="regionSelectView_stats_regionInfo_regionPointsContainer">
+              <p id="regionSelectView_team_point_title">POINTS IN REGION</p>
+              <div id="regionSelectView_regionPoints">
+                {displayRegionPoints(selectedRegion.id, regionsList)}
+              </div>
+            </div>
+            <div className="regionSelectView_stats_regionInfo_regionPoints_yourPoints">
+              <p>YOUR POINTS IN REGION</p>
+              <p>{selectedRegion.your_points}</p>
+            </div>
+        
             <div className='regionPoints_line'></div>
+
           </div>
         </div>
       
