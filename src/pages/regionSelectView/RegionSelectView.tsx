@@ -8,6 +8,7 @@ import { Link } from 'react-router-dom';
 
 import { handleRegionOwnership } from './components/handleRegionOwnership';
 import UserVictoryPoints from './components/UserVictoryPoints';
+import { displayRegionPoints } from "./components/displayRegionPoints"
 
 export interface IAppProps {
 }
@@ -73,17 +74,7 @@ export default function RegionSelectView (props: IAppProps) {
   }, [regionsList])
   
 
-  // Take in the id of user's selected region that is placed local state. Display the teams points based on that region's points stored in global state (RegionReducer) 
-  function displayRegionPoints(selectedRegionID: number) {
-    let tag = <>
-                <p>{regionsList[selectedRegionID].points_red}</p>
-                <p>{regionsList[selectedRegionID].points_blue}</p>
-                <p>{regionsList[selectedRegionID].points_yellow}</p>
-                <p>{regionsList[selectedRegionID].points_green}</p>
-              </>
 
-    return tag
-  }
 
 
 
@@ -113,7 +104,7 @@ export default function RegionSelectView (props: IAppProps) {
             
             <p>POINTS IN REGION</p>
             <div className="regionSelectView_stats_regionInfo_regionPointsContainer">
-              {displayRegionPoints(selectedRegion.id)}
+              {displayRegionPoints(selectedRegion.id, regionsList)}
             </div>
             <p>YOUR POINTS IN REGION</p>
             <p>{selectedRegion.your_points}</p>
