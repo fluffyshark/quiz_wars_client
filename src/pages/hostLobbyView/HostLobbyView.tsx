@@ -3,13 +3,17 @@ import * as SocketIOClient from 'socket.io-client';
 import { useDispatch } from 'react-redux';
 import { Link, useNavigate } from 'react-router-dom';
 import { add_user_info } from "../../redux/UserReducer"
+import { setGameStatus } from '../../redux/VictoryReducer';
 
 interface SocketProps {
   socket: SocketIOClient.Socket;
 }
 
-export default function HostLobbyView ({socket}:SocketProps) {
 
+
+export default function HostLobbyView ({socket}:SocketProps) {
+  
+  const [endGameTimer, setEndGameTimer] = React.useState<number>(20)
   const [displayCode, setDisplayCode] = React.useState<string>("Code Loading")
   const [gameCode, setGameCode] = React.useState<string>()
   const [team_red, setTeam_red] = React.useState<string[]>([])
@@ -93,11 +97,24 @@ export default function HostLobbyView ({socket}:SocketProps) {
 
     
     function hostStartGame() {
+      // Send game play time to global store
+      dispatch(setGameStatus({gamePlayTime:endGameTimer}))
       // Use socket to send to all users that the game are starting, sending game code to use so that only users in current game (room) are affected
       socket.emit("host_starting_game", gameCode);
       // After one second host leave lobby to navigate to overView, time delay is for giving socket.io enough time to execute
       setTimeout(() => {navigate('/overview')}, 1000)
     }
+
+
+
+    const handleInputChange = (event: React.ChangeEvent<HTMLInputElement>) => {
+      setEndGameTimer(parseInt(event.target.value));
+    };
+
+
+    React.useEffect(() => {
+      console.log(endGameTimer)
+    })
 
 
   return (
@@ -108,6 +125,8 @@ export default function HostLobbyView ({socket}:SocketProps) {
         <div className="hostLobbyView_gameCode">
             <div className="hostLobbyView_gameCode_box"><p>Game Code</p><p>{displayCode}</p></div>
         </div>
+
+        <div className="hostLobbyView_endGameTimer"><p>End game in</p><input type="text" value={endGameTimer} onChange={handleInputChange} /><p>minutes</p></div>
 
         <div className="hostLobbyView_teams">
             <div className="hostLobbyView_teams_box"><p>Red Team</p><p>{team_red.length}</p></div>

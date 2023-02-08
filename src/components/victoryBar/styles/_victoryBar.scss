@@ -48,13 +48,11 @@
         border-bottom-left-radius: 15px;
         border-bottom-right-radius: 15px;
         border: 5px solid white;
-        display: flex; justify-content: center; align-items: center;
+        display: flex; justify-content: center; align-items: center; flex-direction: column;
 
-        p {
-            font-size: 40px;
-            color: white;
-            font-weight: bold;
-        }
+        p {color: white;font-weight: bold;}
+        p:nth-child(1) {font-size: 18px; margin: 0; transform: translateY(5px)}
+        p:nth-child(2) {font-size: 40px; margin: 0; transform: translateY(-5px);}
     }
 }
 
