@@ -4,11 +4,13 @@ import VictoryBar from '../../components/victoryBar/VictoryBar';
 import Map from "../../components/map/Map"
 
 import { handleRegionOwnership } from '../regionSelectView/components/handleRegionOwnership';
+import ShowVictor from './components/ShowVictor';
 
 
 export default function Overview () {
 
   const [regionId, setRegionId] = React.useState<string>("")
+  const [showVictorView, setShowVictorView] = React.useState<boolean>(false)
 
   const regionsList = useSelector((state:any) => state.regions.value)
   const victoryStats = useSelector((state:any) => state.victory.value)
@@ -22,10 +24,15 @@ export default function Overview () {
   React.useEffect(() => {setTimeout(() => { handleRegionOwnership(regionsList) }, 1000) }, [regionsList])
 
 
-  React.useEffect(() => {console.log("victoryStats", victoryStats)}, [victoryStats])
-  
+  React.useEffect(() => {
+    console.log("victoryStats", victoryStats)
+    if (victoryStats.gameStatus === "end_game") {setShowVictorView(true)}
+  }, [victoryStats])
+
+
   return (
     <div className='overview'>
+        {showVictorView && <ShowVictor victoryStats={victoryStats}/>}
         <VictoryBar/>
         <Map height={innerHeight} width={mapWidth} setRegionId={setRegionId}/>
     </div>
