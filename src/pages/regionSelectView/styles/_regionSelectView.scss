@@ -85,12 +85,7 @@
                 p:nth-child(1) {font-size: 15px;}
                 p:nth-child(2) {font-size: 30px; margin-bottom: 10px;}
 
-                #regionSelectView_linkButton_portrait {
-                    width: 45px; height: 45px; margin: 10px;
-                    position: absolute; top: 0; left: 0;
-                    cursor: pointer;
-                    display: none;
-                }
+                
             }
     
             &_regionImage {
@@ -189,6 +184,13 @@
         background-color:"white"; 
         border-radius:"5px";
         transform: translateY(-75px);
+    }
+
+    #regionSelectView_linkButton_portrait {
+        width: 45px; height: 45px; margin: 10px;
+        position: absolute; top: 0; left: 0;
+        cursor: pointer;
+        display: none;
     }
     
     
