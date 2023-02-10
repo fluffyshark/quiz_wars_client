@@ -1,11 +1,12 @@
 import * as React from 'react';
 import * as SocketIOClient from 'socket.io-client';
+import {motion} from "framer-motion"
 import { useSelector, useDispatch } from "react-redux"
 import { generateMathProblem } from './components/GenerateMathProblem';
 import { add_points } from "../../redux/UserReducer"
 import { add_users_point_to_region } from "../../redux/RegionReducer"
 import icon_toMap from "../../images/generall/icon_toMap.png"
-import { Link } from 'react-router-dom';
+import { useNavigate } from 'react-router-dom';
 
 
 interface SocketProps {
@@ -18,9 +19,10 @@ export default function MathView ({socket}:SocketProps) {
     
     const [mathProblem, setMathProblem] = React.useState<{answer: number; question: string}>({answer: 0, question: "0 x 0"})
     const [userPoints, setUserPoints] = React.useState<number>(0)
-
+    const [leavingView, setLeavingView] = React.useState<boolean>(false)
 
     const dispatch = useDispatch()
+    let navigate = useNavigate();
     const userData = useSelector((state:any) => state.user.value)
 
     
@@ -63,21 +65,54 @@ export default function MathView ({socket}:SocketProps) {
     // Display the first math problem when the page load
     React.useEffect(() => { setMathProblem(generateMathProblem()) }, [])
 
+    function toRegionSelect() {
+      setLeavingView(true)
+      setTimeout(() => { navigate('/regionselect') }, 1000)
+    }
 
 
   return (
     <div className='mathView'>
-      <div className="mathView_question">
-        <div className="mathView_question_box">
-          <Link to="/regionselect"><img src={icon_toMap} alt="toMapImg" /></Link>
-          <p>{mathProblem.question}</p>
-          <p>{`${userPoints} points`}</p></div>
-      </div>
-      <div className="mathView_answer">
-        <div className="mathView_answer_box">
-            {numberboxes()} 
-        </div>
-      </div>
+      
+      {leavingView === false ? (
+
+          <>
+            <motion.div initial={{opacity: 0}} animate={{opacity: 1}} transition={{ duration:0.5}} className="mathView_question">
+              <div className="mathView_question_box">
+              <img onClick={() => {toRegionSelect()}} src={icon_toMap} alt="toMapImg" />
+                <p>{mathProblem.question}</p>
+                <p>{`${userPoints} points`}</p>
+              </div>
+            </motion.div>
+
+            <motion.div initial={{opacity: 0}} animate={{opacity: 1}} transition={{ duration:0.5}} className="mathView_answer">
+              <div className="mathView_answer_box">
+                  {numberboxes()} 
+              </div>
+            </motion.div>
+          </>
+
+          ) : (
+
+          <>
+            <motion.div initial={{opacity: 1}} animate={{opacity: 0}} transition={{ duration:0.5}} className="mathView_question">
+              <div className="mathView_question_box">
+                <img onClick={() => {toRegionSelect()}} src={icon_toMap} alt="toMapImg" />
+                <p>{mathProblem.question}</p>
+                <p>{`${userPoints} points`}</p>
+              </div>
+            </motion.div>
+
+            <motion.div initial={{opacity: 1}} animate={{opacity: 0}} transition={{ duration:0.5}} className="mathView_answer">
+              <div className="mathView_answer_box">
+                  {numberboxes()} 
+              </div>
+            </motion.div>
+          </>
+
+          )}
+
+      
     </div>
   );
 }

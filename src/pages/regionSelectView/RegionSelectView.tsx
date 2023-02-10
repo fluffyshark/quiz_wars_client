@@ -1,10 +1,11 @@
 import {useEffect, useState} from 'react';
+import {motion} from "framer-motion"
 import { useSelector, useDispatch } from 'react-redux/es/exports';
 import { select_region } from "../../redux/UserReducer"
 import Map from "../../components/map/Map"
 import region01 from "../../images/regions/region01.webp"
 import icon_toMath from "../../images/generall/icon_toMath.png"
-import { Link } from 'react-router-dom';
+import { useNavigate } from 'react-router-dom';
 
 import { handleRegionOwnership } from './components/handleRegionOwnership';
 import UserVictoryPoints from './components/UserVictoryPoints';
@@ -19,12 +20,14 @@ export default function RegionSelectView (props: IAppProps) {
 
   const [regionId, setRegionId] = useState<string>("mapID00")
   const [selectedRegion, setSelectedRegion] = useState({id: 0, name:"Forest's Edge", img: region01, points_red: 0, points_blue: 0, points_yellow: 0, points_green: 0, your_points: 0, controlledBy: "none"})
+  const [leavingView, setLeavingView] = useState<boolean>(false)
 
   // Accessing RegionData from redux
   const regionsList = useSelector((state:any) => state.regions.value)
   const userData = useSelector((state:any) => state.user.value)
 
   const dispatch = useDispatch()
+  let navigate = useNavigate();
 
   // Valiables used to adjust map to viewport
   const innerHeight = window.innerHeight - 1; 
@@ -79,15 +82,26 @@ export default function RegionSelectView (props: IAppProps) {
     setTimeout(() => { handleRegionOwnership(regionsList) }, 1000)
 
   }, [regionsList])
+
+
+  function toMathView() {
+    setLeavingView(true)
+    setTimeout(() => { navigate('/mathview') }, 1000)
+  }
   
 
+    // NEXT - OPACITY NOT WORKING AS DIV HAS ALREADY BEEN CREATED, NEED TO SPAN it in
 
   return (
     <div className='regionSelectView'>
+
+      {leavingView === false ? (<motion.div animate={{y: "100vh"}} transition={{delay: 1, duration:1}} id="regionSelectView_loadingScreen"></motion.div>) : (<motion.div animate={{y: "0vh"}} transition={{ duration:1}} id="regionSelectView_loadingScreen"></motion.div>)}
+      
+
       <Map height={mapHeight} width={mapWidth} setRegionId={setRegionId}/>
       <div id="statsSection" className="regionSelectView_stats">
         <div className="regionSelectView_stats_titleSection">
-          <Link id="regionSelectView_linkButton_landscape" to="/mathview"><img src={icon_toMath} alt="" /></Link>
+          <img onClick={() => {toMathView()}} id="regionSelectView_linkButton_landscape" src={icon_toMath} alt="" />
           <p>Quiz Wars</p>
         </div>
          
@@ -107,7 +121,7 @@ export default function RegionSelectView (props: IAppProps) {
           
           <div className="regionSelectView_stats_regionInfo_regionPoints">
             
-            <Link to="/mathview"><img id="regionSelectView_linkButton_portrait" src={icon_toMath} alt="" /></Link>
+            <img onClick={() => {toMathView()}} id="regionSelectView_linkButton_portrait" src={icon_toMath} alt="" />
             
             <div className="regionSelectView_stats_regionInfo_regionPoints_controlledby">
               <p>CONTROLLED BY</p>
