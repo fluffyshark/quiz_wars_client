@@ -1,5 +1,4 @@
-@media only screen and (orientation : landscape) {
-
+@media only screen and (orientation : portrait) {
 
 
 
@@ -8,7 +7,7 @@
         height: 100vh;
     //    background: rgb(41,149,238);
     //    background: linear-gradient(0deg, rgba(41,149,238,1) 0%, rgba(17,112,236,1) 100%);
-        background-image: url("../images/backgrounds/cloudy01.webp");
+        background-image: url("../images/backgrounds/tabletBackground.webp");
         background-repeat: no-repeat;
         background-size: cover;
         background-position: center center; 
@@ -45,7 +44,4 @@
     #hostButton {border-bottom: 8px solid #106fec;}
     
 
-
-
 }
-
