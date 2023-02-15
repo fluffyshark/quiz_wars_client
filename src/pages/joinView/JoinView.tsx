@@ -80,6 +80,7 @@ export default function JoinView ({socket}:SocketProps) {
     }
 
 
+    
     React.useEffect(() => {socket.emit("user_requesting_all_gamecodes")}, [])
 
     React.useEffect(() => {
