@@ -7,6 +7,7 @@ import { add_points } from "../../redux/UserReducer"
 import { add_users_point_to_region } from "../../redux/RegionReducer"
 import icon_toMap from "../../images/generall/icon_toMap.png"
 import { useNavigate } from 'react-router-dom';
+import { setMathQuestion } from '../../redux/MathReducer';
 
 
 interface SocketProps {
@@ -24,6 +25,7 @@ export default function MathView ({socket}:SocketProps) {
     const dispatch = useDispatch()
     let navigate = useNavigate();
     const userData = useSelector((state:any) => state.user.value)
+    const mathData = useSelector((state:any) => state.math.value)
 
     
 
@@ -31,21 +33,27 @@ export default function MathView ({socket}:SocketProps) {
     function handleClick(index:number) {
       // If user clicks the button which number match the answer of the current math question
       if (index === mathProblem.answer) {
-        // User points increase by 1
-        setUserPoints(userPoints + 1)
         // One point is sent and added to userData in UserReducer
         dispatch(add_points({points: 1}))
         // One point is sent and added to your_points in RegionData in RegionReducer
         dispatch(add_users_point_to_region({id: userData.selectedRegionId, points: 1}))
         // One point is sent to server by socket together with the current region (and other data to direct where the point should be added) 
         socket.emit("user_got_point", {userName:"Robin", points:1, regionId:userData.selectedRegionId, gameCode:userData.gameCode, team:userData.team});
-        console.log(userData.team)
       } else {
         console.log("wrong")
       }
-      // A new math problem are generated and displayed through local state
-      setMathProblem(generateMathProblem())
+
+      // A new math problem are generated and sent to global state
+      dispatch(setMathQuestion(generateMathProblem()))
     }
+
+    
+
+    // When a new math problem are updated in global state, then it set to local state
+    React.useEffect(() => { setMathProblem(generateMathProblem()) }, [mathData])
+
+    // User points is updated when userData is updated (with every new point)
+    React.useEffect(() => { setUserPoints(userData.points) }, [userData])
 
     
 

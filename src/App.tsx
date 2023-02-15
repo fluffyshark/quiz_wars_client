@@ -38,7 +38,7 @@ function App() {
 
   const dispatch = useDispatch()
   const socket: Socket<ServerToClientEvents, ClientToServerEvents> = io("https://quiz-wars-server.onrender.com/");
-//  const socket: Socket<ServerToClientEvents, ClientToServerEvents> = io("http://localhost:3001");
+// const socket: Socket<ServerToClientEvents, ClientToServerEvents> = io("http://localhost:3001");
  
 
   useEffect(() => {
