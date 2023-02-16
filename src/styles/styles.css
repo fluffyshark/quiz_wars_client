@@ -608,9 +608,9 @@
     text-shadow: 1px 1px 15px black;
   }
   .startView_button {
-    width: 600px;
+    width: 500px;
     max-width: 1000px;
-    height: 100px;
+    height: 80px;
     background-color: rgba(60, 184, 252, 0.8352941176);
     cursor: pointer;
     display: flex;
@@ -760,6 +760,16 @@
   font-weight: bold;
   margin: 0;
 }
+@media only screen and (max-height: 740px) {
+  .joinView_title p {
+    font-size: 60px;
+  }
+}
+@media only screen and (max-height: 740px) {
+  .joinView_title {
+    height: 15%;
+  }
+}
 .joinView_container {
   width: 100%;
   height: 80%;
@@ -767,6 +777,23 @@
   justify-content: flex-start;
   align-items: center;
   flex-direction: column;
+}
+@media only screen and (max-height: 690px) {
+  .joinView_container {
+    scale: 0.9;
+  }
+}
+@media only screen and (max-height: 640px) {
+  .joinView_container {
+    scale: 0.9;
+    transform: translateY(-35px);
+  }
+}
+@media only screen and (max-height: 600px) {
+  .joinView_container {
+    scale: 0.8;
+    transform: translateY(-65px);
+  }
 }
 .joinView_container_form {
   display: flex;
@@ -781,6 +808,11 @@
   font-size: 30px;
   color: white;
   font-weight: bold;
+}
+@media only screen and (max-height: 850px) {
+  .joinView_container p {
+    margin-top: 10px;
+  }
 }
 .joinView_container_box {
   width: 300px;
@@ -860,6 +892,11 @@
 .joinView_container #joinGameBtn p {
   font-size: 20px;
 }
+@media only screen and (max-height: 800px) {
+  .joinView_container #joinGameBtn {
+    margin-top: 30px;
+  }
+}
 .joinView_container #notReadyBtn {
   width: 250px;
   height: 45px;
@@ -868,6 +905,11 @@
 }
 .joinView_container #notReadyBtn p {
   font-size: 20px;
+}
+@media only screen and (max-height: 800px) {
+  .joinView_container #notReadyBtn {
+    margin-top: 30px;
+  }
 }
 .joinView_container #joinGameBtn:hover {
   background-color: #106fec;
@@ -1389,9 +1431,9 @@
     text-shadow: 1px 1px 15px black;
   }
   .startView_button {
-    width: 600px;
+    width: 500px;
     max-width: 1000px;
-    height: 100px;
+    height: 80px;
     background-color: rgba(60, 184, 252, 0.8352941176);
     cursor: pointer;
     display: flex;
