@@ -5,6 +5,7 @@ import icon_nope from "../../images/generall/icon_nope.png"
 import { useNavigate } from "react-router-dom";
 import { useDispatch } from 'react-redux';
 import { add_user_info } from "../../redux/UserReducer"
+import { setMathType } from '../../redux/MathReducer';
 
 
 interface FormData {
@@ -89,6 +90,12 @@ export default function JoinView ({socket}:SocketProps) {
         // Setting allGameCodes to local state
         setAllGameCodes(allGameCodes)
         console.log("All game codes ", allGameCodes)
+      })
+
+      // Receive message from server with player id and game type"
+      socket.on("sending_gameType_and_playerID", (gameData) => {
+        console.log("playerID", gameData)
+        dispatch(setMathType({type: gameData.gameType}))
       })
   
     }, [socket])

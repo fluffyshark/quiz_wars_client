@@ -21,6 +21,7 @@ interface ServerToClientEvents {
   send_gamedata_to_users: (gameData:any, gameCode:number) => void;
   sending_user_gamecodes_request:  (allGameCodes:any) => void;
   
+  
 
   // Template of types
   noArg: () => void;
@@ -37,8 +38,8 @@ interface ClientToServerEvents {
 function App() {
 
   const dispatch = useDispatch()
-  const socket: Socket<ServerToClientEvents, ClientToServerEvents> = io("https://quiz-wars-server.onrender.com/");
-// const socket: Socket<ServerToClientEvents, ClientToServerEvents> = io("http://localhost:3001");
+//  const socket: Socket<ServerToClientEvents, ClientToServerEvents> = io("https://quiz-wars-server.onrender.com/");
+ const socket: Socket<ServerToClientEvents, ClientToServerEvents> = io("http://localhost:3001");
  
 
   useEffect(() => {
@@ -50,7 +51,7 @@ function App() {
       console.log("Client GameData ", gameData)
     })
 
-
+   
   }, [socket])
 
 

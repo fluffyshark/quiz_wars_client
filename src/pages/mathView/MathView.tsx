@@ -44,25 +44,27 @@ export default function MathView ({socket}:SocketProps) {
       }
 
       // A new math problem are generated and sent to global state
-      dispatch(setMathQuestion(generateMathProblem()))
+      dispatch(setMathQuestion(generateMathProblem(mathData.type)))
     }
 
-    
 
+    // DELETE THIS
+    React.useEffect(() => { console.log("mathData1", mathData)}, [mathData])
     // When a new math problem are updated in global state, then it set to local state
-    React.useEffect(() => { setMathProblem(generateMathProblem()) }, [mathData])
+    React.useEffect(() => { setMathProblem( {answer: mathData.answer, question: mathData.question} )}, [mathData])
 
     // User points is updated when userData is updated (with every new point)
     React.useEffect(() => { setUserPoints(userData.points) }, [userData])
 
+    // Display the first math problem when the page load
+    React.useEffect(() => { setMathProblem(generateMathProblem(mathData.type)) }, [])
     
+
 
     // Generating answer boxes
     const numberboxes = () => {
-
       // Populate array with numbers from 1 to 100
       let array = Array.from({length: 100}, (e, i)=> i)
-      
       // Mapping out all numbers in array, styling them in a blue square  
       return ( <> { array.map((box, i) => { return (<div key={i} onClick={() => handleClick(i + 1)} className="mathView_answer_box_number" ><p>{i + 1}</p></div>) }) } </> )
       
@@ -70,13 +72,11 @@ export default function MathView ({socket}:SocketProps) {
 
 
 
-    // Display the first math problem when the page load
-    React.useEffect(() => { setMathProblem(generateMathProblem()) }, [])
-
     function toRegionSelect() {
       setLeavingView(true)
       setTimeout(() => { navigate('/regionselect') }, 1000)
     }
+
 
 
   return (

@@ -1,6 +1,6 @@
 import * as React from 'react';
 import * as SocketIOClient from 'socket.io-client';
-import { useDispatch } from 'react-redux';
+import { useDispatch, useSelector } from 'react-redux';
 import { Link, useNavigate } from 'react-router-dom';
 import { add_user_info } from "../../redux/UserReducer"
 import { setGameStatus } from '../../redux/VictoryReducer';
@@ -23,6 +23,8 @@ export default function HostLobbyView ({socket}:SocketProps) {
 
   const dispatch = useDispatch()
   let navigate = useNavigate();
+  const mathData = useSelector((state:any) => state.math.value)
+
 
   function hostGame() {
 
@@ -45,7 +47,7 @@ export default function HostLobbyView ({socket}:SocketProps) {
     setDisplayCode(displayCode)
 
     // Host also need to join the same socket.io room to communicate with players in the room
-    socket.emit("host_create_room", String(hostCode));
+    socket.emit("host_create_room", {gameCode: String(hostCode), gameType: mathData.type});
 
     // Send host data to redux
     dispatch(add_user_info({username: "HOST", gameCode: String(hostCode), selectedRegionId:0, team: ""}))
