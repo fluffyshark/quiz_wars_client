@@ -1,5 +1,6 @@
-![quiz_wars_front2](https://user-images.githubusercontent.com/16481598/221396979-1ca7fcc4-8944-4432-99c9-0c9a10697ef5.png)
-
+<p align="center">
+  <img width="100%" src="https://user-images.githubusercontent.com/16481598/221396979-1ca7fcc4-8944-4432-99c9-0c9a10697ef5.png">
+</p>
 
 **Languages and tools used**
 
