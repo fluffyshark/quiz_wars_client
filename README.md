@@ -1,46 +1,26 @@
-# Getting Started with Create React App
+![quiz_wars_front2](https://user-images.githubusercontent.com/16481598/221396979-1ca7fcc4-8944-4432-99c9-0c9a10697ef5.png)
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
 
-## Available Scripts
+**Languages and tools used**
 
-In the project directory, you can run:
+<p align="center">
+  <img height="50px" src="https://user-images.githubusercontent.com/16481598/221396981-3e7e1f14-058b-4be4-9ee0-795e4b072185.png" alt="Material Bread logo">
+</p>
 
-### `npm start`
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in the browser.
 
-The page will reload if you make edits.\
-You will also see any lint errors in the console.
+**Description**
+Web app built with React Typescript to increase student engagement in lessons with tematic math/quiz competitions. Up to four groups of students can compete for supremacy of the map. They just need one more point in a region than the other teams to claim it.  Future updates includes the founding of town, building of fortresses, and the casting of spells. All for engaging the students and keep their minds of that they are actually learning.  
 
-### `npm test`
 
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
 
-### `npm run build`
 
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
 
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
+<p align="center">
+  <img width="50%" src="https://user-images.githubusercontent.com/16481598/221397460-579ffbc7-e019-4eae-90fc-be2ff13ede73.gif" alt="Material Bread logo">
+</p>
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
 
-### `npm run eject`
 
-**Note: this is a one-way operation. Once you `eject`, you can’t go back!**
-
-If you aren’t satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
-
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you’re on your own.
-
-You don’t have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn’t feel obligated to use this feature. However we understand that this tool wouldn’t be useful if you couldn’t customize it when you are ready for it.
-
-## Learn More
-
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
-
-To learn React, check out the [React documentation](https://reactjs.org/).
+The app is split between a React Typescript client and an Express server. Both parts are currently hosted
+on Render. The parts communicate via socket.io. Redux is used as a global store in the client part.
